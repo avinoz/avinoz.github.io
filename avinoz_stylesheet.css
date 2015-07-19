@@ -23,8 +23,9 @@ h1 {
 
 h3 {
   color: #383838;
+  width: 10%;
   position: relative;
-  top: 15x;
+  top: -330px;
   left : 20px;
   font-family: Geneva, Helvetica;
   font-size: 20px;
@@ -98,7 +99,7 @@ img {
 .blog_posts {
   position: relative;
   left: 120px;
-  top: -40px;
+  top: -370px;
   list-style-type: none;
   width: 20%
 }
@@ -116,9 +117,18 @@ a:hover {
   width: 20%;
   position: relative;
   left: 73%;
-  top: -213px;
+  top: 0px;
   text-align: right;
   list-style-type: none;
+  display: inline-block;
+}
+
+#add_height {
+  height: 200px;
+  width: 1%;
+  position: relative;
+  left: 0px;
+  top: 0px;
 }
 
 .social_links li {

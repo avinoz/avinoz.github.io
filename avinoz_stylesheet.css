@@ -11,7 +11,7 @@ html {
   color: #C0C0C0;
 }
 
-h1 {
+#header_name {
   font-family: Geneva, Helvetica;
   color: white;
   font-size: 60px;
@@ -19,6 +19,17 @@ h1 {
   margin-bottom: 0px;
   margin-top: 20px;
   margin-right: 20px;
+}
+
+h1 {
+  color: gray;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+h2{
+  margin-top: 6px;
+  color: #C8C8C8;
 }
 
 h3 {
@@ -72,6 +83,7 @@ h4 {
   left: -10px;
   display: inline-block;
   padding-left: 30px;
+  overflow: hidden;
 }
 
 #b_text {
@@ -157,4 +169,16 @@ footer {
 #email_link {
   color: white;
   font-size: 10px;
+}
+
+#blog_content {
+  color: #E0E0E0;
+  font-size: 12px;
+  margin-top: 20px;
+  width: 50%
+}
+
+section {
+  font-size: 13px;
+  color: #B0B0B0;
 }

@@ -1,0 +1,140 @@
+
+
+html {
+  background-color: #B8B8B8;
+  font-family: Helvetica, Tahoma;
+}
+
+#Hi {
+  font-family: Geneva, Helvetica;
+  font-size: 60px;
+  color: #D0D0D0;
+}
+
+h1 {
+  font-family: Geneva, Helvetica;
+  color: white;
+  font-size: 60px;
+  text-align: right;
+  margin-bottom: 0px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+h3 {
+  color: #383838;
+  position: relative;
+  top: 15x;
+  left : 20px;
+  font-family: Geneva, Helvetica;
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 12px;
+  font-family: Geneva, Helvetica;
+  text-align: right;
+  color: #D0D0D0;
+  margin: -5px 23px 18px 0px
+}
+
+.nav_bar {
+  background-color: gray;
+  display: flex;
+  width: 100%;
+  padding: 3px;
+  padding-right: 20px;
+  position: relative;
+  left: -10px;
+}
+
+#blog {
+  margin-left: 20px;
+}
+
+#support {
+  margin-left: 20px;
+}
+
+#projects {
+  margin-left: 20px;
+}
+
+#blurb {
+  text-align: left;
+  font-size: 30px;
+  width: 100%;
+  height: 450px;
+  background-color: white;
+  position: relative;
+  top: 0px;
+  left: -10px;
+  display: inline-block;
+  padding-left: 30px;
+}
+
+#b_text {
+  color: red;
+  width: 50%
+}
+
+img {
+  height: 450px;
+  width: 450px;
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  margin-right: 0px
+
+}
+
+.blog_posts {
+  list-style-type: none;
+  width: 20%
+}
+
+a {
+  text-decoration: none;
+  color: #383838;
+}
+
+a:hover {
+  background-color: yellow;
+}
+
+.social_links {
+  width: 20%;
+  position: relative;
+  left: 73%;
+  top: -220px;
+  text-align: right;
+  list-style-type: none;
+}
+
+.social_links li {
+ padding-top: 8px;
+}
+
+.blog_span {
+  display: block;
+  color: gray;
+  font-size: 10px;
+  margin-bottom: 8px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+footer {
+  width: 100%;
+  height: 20px;
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 0px
+}
+
+#email_link {
+  color: white;
+  font-size: 10px;
+}

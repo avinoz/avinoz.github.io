@@ -3,6 +3,8 @@
 html {
   background-color: #B8B8B8;
   font-family: Helvetica, Tahoma;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #name_link {
@@ -107,7 +109,7 @@ img {
   width: 450px;
   position: absolute;
   top: 0px;
-  right: -10px;
+  right: 0px;
   margin-right: 0px
 
 }

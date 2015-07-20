@@ -1,11 +1,14 @@
 
 
 html {
-  background-color: #B8B8B8;
+  background-color: #;
   font-family: Helvetica, Tahoma;
   overflow-y: scroll;
   overflow-x: hidden;
+  background-image: url("./img/gray.jpg");
+  background-color: #B8B8B8;
 }
+
 
 #name_link {
   color: white;
@@ -13,8 +16,8 @@ html {
 
 #Hi {
   font-family: Geneva, Helvetica;
-  font-size: 60px;
-  color: #C0C0C0;
+  font-size: 55px;
+  color: #D0D0D0;
 }
 
 #header_name {
@@ -52,11 +55,12 @@ h4 {
   font-size: 12px;
   font-family: Geneva, Helvetica;
   text-align: right;
-  color: #D0D0D0;
+  color: #909090;
   margin: -5px 23px 18px 0px
 }
 
 .nav_bar {
+  background-image: url("./img/gray_dark.jpg");
   background-color: gray;
   display: flex;
   width: 100%;
@@ -124,7 +128,7 @@ img {
 
 a {
   text-decoration: none;
-  color: #383838;
+  color: #F0F0F0;
 }
 
 a:hover {

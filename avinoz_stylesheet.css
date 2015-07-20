@@ -92,7 +92,8 @@ h4 {
   left: -10px;
   display: inline-block;
   padding-left: 50px;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #b_text {
@@ -107,12 +108,12 @@ span {
   color: #F0F0F0;
 }
 
-img {
+#profile_pic {
   height: 450px;
   width: 450px;
-  position: absolute;
-  top: 0px;
-  right: 30px;
+  position: fixed;
+  top: 153px;
+  right: 0px;
   margin-right: 0px
 
 }
@@ -196,3 +197,9 @@ section {
   color: #B0B0B0;
 }
 
+#box_model {
+  margin: 20px 20px 30px 30px;
+  height: 70%;
+  width: 70%
+
+}

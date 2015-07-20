@@ -3,7 +3,7 @@
 html {
   background-color: #;
   font-family: Helvetica, Tahoma;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
   background-image: url("./img/gray.jpg");
   background-color: #B8B8B8;
@@ -91,7 +91,7 @@ h4 {
   top: 0px;
   left: -10px;
   display: inline-block;
-  padding-left: 30px;
+  padding-left: 50px;
   overflow: hidden;
 }
 
@@ -112,7 +112,7 @@ img {
   width: 450px;
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 30px;
   margin-right: 0px
 
 }

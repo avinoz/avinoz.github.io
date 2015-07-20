@@ -3,6 +3,8 @@
 html {
   background-color: #B8B8B8;
   font-family: Helvetica, Tahoma;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #name_link {

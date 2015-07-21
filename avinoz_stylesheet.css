@@ -9,54 +9,7 @@ html {
   background-color: #B8B8B8;
 }
 
-#name_link {
-  color: white;
-}
 
-#Hi {
-  font-family: Geneva, Helvetica;
-  font-size: 55px;
-  color: #D0D0D0;
-}
-
-#header_name {
-  font-family: Geneva, Helvetica;
-  color: white;
-  font-size: 60px;
-  text-align: right;
-  margin-bottom: 0px;
-  margin-top: 20px;
-  margin-right: 20px;
-}
-
-h1 {
-  color: gray;
-  font-size: 30px;
-  margin-bottom: 0px;
-}
-
-h2{
-  margin-top: 6px;
-  color: #C8C8C8;
-}
-
-h3 {
-  color: #F0F0F0;
-  width: 30%;
-  position: relative;
-  top: -330px;
-  left : 20px;
-  font-family: Geneva, Helvetica;
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 12px;
-  font-family: Geneva, Helvetica;
-  text-align: right;
-  color: #909090;
-  margin: -5px 23px 18px 0px
-}
 
 .nav_bar {
   background-image: url("./img/gray_dark.jpg");
@@ -96,6 +49,25 @@ h4 {
   overflow-x: hidden;
 }
 
+#profile_pic {
+  height: 450px;
+  width: 450px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin-right: 0px
+
+#blog_content {
+  width: 100px;
+  color: #E0E0E0;
+  position: absolute;
+  left: 0px;
+  font-size: 12px;
+  margin-top: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 #b_text {
   color: #E0E0E0;
   font-size: 60px;
@@ -108,15 +80,6 @@ span {
   color: #F0F0F0;
 }
 
-#profile_pic {
-  height: 450px;
-  width: 450px;
-  position: fixed;
-  top: 153px;
-  right: 0px;
-  margin-right: 0px
-
-}
 
 .blog_posts {
   position: relative;
@@ -183,13 +146,6 @@ footer {
 #email_link {
   color: white;
   font-size: 10px;
-}
-
-#blog_content {
-  color: #E0E0E0;
-  font-size: 12px;
-  margin-top: 20px;
-  width: 50%
 }
 
 section {

@@ -13,13 +13,14 @@ html {
 
 
 h1 {
-  color: gray;
-  font-size: 30px;
+  color: orange;
+  font-size: 40px;
+  margin: 0px;
 }
 
 h2{
   margin-top: 6px;
-  color: #C8C8C8;
+  color: #A0A0A0;
 }
 
 h3 {
@@ -29,7 +30,10 @@ h3 {
 }
 
 h4 {
+  position: relative;
+  top: -13px;
   font-size: 12px;
+  color: #A0A0A0;
   font-family: Geneva, Helvetica;
 }
 
@@ -241,5 +245,24 @@ footer {
   font-size: 10px;
 }
 
+/* ------------ BLOG CONTENT ------------  */
+
+#blog_content {
+  color: #383838 ;
+  font-size: 13px;
+  width: 100%
+}
+
+#blog_content p {
+  max-width: 500px;
+  margin: 0px;
+  padding: 0px 0px 15px 0px;
+
+}
+
+#box_model {
+  width: 400px;
+  margin: 0px 0px 20px 40px;
+}
 
 /* END */

@@ -82,7 +82,7 @@ header {
 #header_position {
   text-align: right;
   color: #909090;
-  margin: -5px 23px 18px 0px
+  margin: 8px 33px 10px 0px
 }
 
 /* ------------ NAVIGATION ------------  */
@@ -248,9 +248,12 @@ footer {
 /* ------------ BLOG CONTENT ------------  */
 
 #blog_content {
-  color: #383838 ;
+  position: relative;
+  left: 25px;
+  color: #808080;
   font-size: 13px;
   width: 100%
+
 }
 
 #blog_content p {

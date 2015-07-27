@@ -192,8 +192,8 @@ header {
 }
 
 #blog_posts, #blog_left, #blog_right {
-  width: 170px;
-  height: 39px;
+  width: 200px;
+  height: 82px;
   float: left;
   position: relative;
   margin-top: 30px;

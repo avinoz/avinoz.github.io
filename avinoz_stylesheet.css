@@ -172,6 +172,11 @@ header {
   height 450px;
 }
 
+section {
+
+width: 90%
+}
+
 /* ------------ UNDER MAIN CONTAINER ------------  */
 
 #under_main {

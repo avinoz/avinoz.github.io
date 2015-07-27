@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../avinoz_stylesheet.css">
+    <title>Alvin Shiu</title>
+  </head>
+
+  <body>
+    <header>
+      <h1 id="header_name"><span id="Hi">Hi! I'm </span><a href="http://avinoz.github.io" id="name_link">Alvin Shiu</a></h1>
+      <h4 id="header_position">Architectural Designer & Web Developer</h4>
+    </header>
+
+    <div id="nav_bar">
+      <p class="nav_items"><a href="http://avinoz.github.io/">Who <span class="nav_light">Am I?</span></a></p>
+      <p class="nav_items"><a href="http://avinoz.github.io/">Things <span class="nav_light">I've done</span></a></p>
+      <p class="nav_items"><a href="http://avinoz.github.io/blog/blog_index.html">Thoughts <span class="nav_light">in my head</span></a></p>
+    </div>
+
+    <div id="container">
+      <div id="left">
+
+        <div id="blurb">
+          <div id="blog_content">
+          <main>
+            <h1>Hash, Hash ... Array!!!!</h1>
+            <h2>What's Hash & What's Array in Ruby</h2>
+            <h4>07/27/15</h4>
+            <section>
+              <p>
+
+
+
+Ok, so what are these things hashes and arrays? Well, it’s storing and accessing data. Think of any program, in order for it to do anything, it needs to remember pieces of info and be able to retrieve them to do whatever you need it to do.
+</p>
+<p>
+An array is a list. Think of a list of chores for example:
+</p>
+<p>
+  CHORES TODAY:
+1)  go to the bank
+2)  finish homework
+3)  lunch with Sophie
+</p>
+<p>
+We give this array a name: chores_today[] . In this list we have three items but the crucial thing to know is that arrays start counting from 0 so ‘go to the bank’ is actually item number 0. We can call this item in the array by typing  chores_today[0] . Similarly if we wanted to retrieve our lunch plans, we type chores_today[2]. How do we write this you ask? Well here it is:
+</p>
+<p>
+chores_today = [ “go to the bank”, “finish homework”, “lunch with Sophie”]
+</p>
+<p>
+As you can see, an array can hold anything really, integers, floats, strings.
+</p>
+<p>
+Alright, so we know an array is a list, what’s hash? Think of hash being a list that you give to a friend to run your chores who needs to know more specific information like  which bank? What homework?
+</p>
+<p>
+chores_today = { "go to the bank" => "Wells Fargo", "finish homework" => "DevBootcamp", "lunch with Sophie" => "Mission Beach Cafe" }
+</p>
+<p>
+To retrieve information from Arrays we use it’s position in the list. With hashes, we use the “key” instead. For example to retrieve “Wells Fargo” we type in chores_today[“go to the bank”] the key in this instant is “go to the bank”
+</p>
+<p>
+Voila! Now you know, go give your girlfriend a shopping list in arrays and hashes!
+
+
+
+              </p>
+            </section>
+           </main>
+          </div>
+          </div>
+        </div>
+      <div id="right">
+        <p></p>
+        <img src="../img/profile_pic.jpg" id="profile_pic">
+      </div>
+    </div>
+
+    <div id="under_main">
+      <div id="under_main_left">
+       <h3 id="blog_posts">Blog Posts</h3>
+       <ul id="blog_left">
+         <li><a href="./t1-git-blog.html">Git to it!</a><span class="blog_span"> 07/13/15</span></li>
+          <li><a href="./c1-chefs-kitchen.html">Techie Fruit Punch</a><span class="blog_span"> 07/13/15</span></li>
+       </ul>
+       <ul id="blog_right">
+          <li><a href="./t2-css-design.html">Box Model Anyone?</a><span class="blog_span"> 07/20/15</span></li>
+          <li><a href="./c3-thinking-style.html">My Quirkiness in Learning</a><span class="blog_span"> 07/27/15</span></li>
+        </ul>
+      </div>
+      <div id="under_main_right">
+       <ul class="social_links">
+          <li><a href="https://www.linkedin.com/pub/alvin-shiu/12/aa9/357">Linked In</a></li>
+          <li><a href="http://avinoz.github.io/">GitHub</a></li>
+          <li><a href="https://twitter.com/avio">Twitter</a></li>
+         <li><a href="http://www.facebook.com/avinoz">Facebook</a></li>
+       </ul>
+     </div>
+    </div>
+
+    <div id="add_height"></div>
+
+    <footer>
+      Copyright (c) 2015 | <a href="mailto:avinoz@gmail.com" id="email_link">Alvin Shiu</a>
+    </footer>
+
+  </body>
+</html>
+

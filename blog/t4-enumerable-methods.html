@@ -25,49 +25,29 @@
         <div id="blurb">
           <div id="blog_content">
           <main>
-            <h1>Hash, Hash ... Array!!!!</h1>
-            <h2>What's Hash & What's Array in Ruby</h2>
-            <h4>07/27/15</h4>
+            <h1>Two Useful Methods</h1>
+            <h2>Well.. It's Really Just One With Two Names!</h2>
+            <h4>08/03/15</h4>
             <section>
-              <p>
 
+                <p>
+                I tried to spin this into a funny post but sadly I’m out of juice right now. So, clear cut and dry it is! The map method! What does it do? Well, it plows through an array and look for what you ask it to and put them into a new array. Cool eh? It’s  a very nice time saver. Before I jump into examples, I want to point out that #map is synonymous to #collect. Yup, you say potato, I say pot-at-o!
+                </p>
 
+                <p>
+                Alright and here are a few examples that will help shape your understanding:
+                </p>
 
-Ok, so what are these things hashes and arrays? Well, it’s storing and accessing data. Think of any program, in order for it to do anything, it needs to remember pieces of info and be able to retrieve them to do whatever you need it to do.
-</p>
-<p>
-An array is a list. Think of a list of chores for example:
-</p>
-<p>
-  CHORES TODAY:
-1)  go to the bank
-2)  finish homework
-3)  lunch with Sophie
-</p>
-<p>
-We give this array a name: chores_today[] . In this list we have three items but the crucial thing to know is that arrays start counting from 0 so ‘go to the bank’ is actually item number 0. We can call this item in the array by typing  chores_today[0] . Similarly if we wanted to retrieve our lunch plans, we type chores_today[2]. How do we write this you ask? Well here it is:
-</p>
-<p>
-chores_today = [ “go to the bank”, “finish homework”, “lunch with Sophie”]
-</p>
-<p>
-As you can see, an array can hold anything really, integers, floats, strings.
-</p>
-<p>
-Alright, so we know an array is a list, what’s hash? Think of hash being a list that you give to a friend to run your chores who needs to know more specific information like  which bank? What homework?
-</p>
-<p>
-chores_today = { "go to the bank" => "Wells Fargo", "finish homework" => "DevBootcamp", "lunch with Sophie" => "Mission Beach Cafe" }
-</p>
-<p>
-To retrieve information from Arrays we use it’s position in the list. With hashes, we use the “key” instead. For example to retrieve “Wells Fargo” we type in chores_today[“go to the bank”] the key in this instant is “go to the bank”
-</p>
-<p>
-Voila! Now you know, go give your girlfriend a shopping list in arrays and hashes!
+                <p>
+                  (1..4).map {|i| i*i}
+                <br>
+                  #=> [1, 4, 9, 16]
+                </p>
 
+                <p>
+                So what’s this saying? It asks ruby to take all the numbers between 1 and 4 and put  each one of them it into this equation where the number is represented by the variable “i” and stick them all in a new array. Easy right? If  you don’t give it a block with an equation, it’ll just return an enumerator.
+                </p>
 
-
-              </p>
             </section>
            </main>
           </div>

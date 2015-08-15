@@ -39,6 +39,7 @@ h4 {
 a {
   text-decoration: none;
   color: #F0F0F0;
+
 }
 
 a:hover {
@@ -59,12 +60,16 @@ header {
 
 #name_link {
   color: white;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #Hi {
   font-family: Geneva, Helvetica;
   font-size: 55px;
   color: #D6D6D6;
+  position: relative;
+  right: -10px;
 }
 
 #header_name {
@@ -174,11 +179,9 @@ header {
   top: -16px;
   right: -100px;
   width: 536px;
-
 }
 
 section {
-
 width: 90%
 }
 
@@ -281,7 +284,6 @@ footer {
   color: #808080;
   font-size: 13px;
   width: 100%
-
 }
 
 #blog_content p {

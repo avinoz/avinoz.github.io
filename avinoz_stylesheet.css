@@ -39,7 +39,6 @@ h4 {
 a {
   text-decoration: none;
   color: #F0F0F0;
-
 }
 
 a:hover {
@@ -48,11 +47,9 @@ a:hover {
 
 
 #work a{
-color: lightgray;
-position: relative;
-top: -12px;
-font-size: 40px;
-margin: 0px;
+  color: lightgray;
+  font-size: 60px;
+  margin: 0px;
 }
 
 
@@ -166,7 +163,6 @@ header {
 
 #blurb {
   text-align: left;
-  font-size: 30px;
   overflow: hidden;
   color: #A8A8A8;
   font-size: 60px;

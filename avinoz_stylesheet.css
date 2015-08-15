@@ -46,6 +46,16 @@ a:hover {
   background-color: #FFCC00;
 }
 
+
+#work a{
+color: lightgray;
+position: relative;
+top: -12px;
+font-size: 40px;
+margin: 0px;
+}
+
+
 li {
   list-style: none;
   position: relative;
@@ -206,7 +216,7 @@ width: 90%
 
 #blog_posts, #blog_left, #blog_center, #blog_right {
   width: 180px;
-  height: 200px;
+  height: 300px;
   float: left;
   position: relative;
   margin-top: 30px;

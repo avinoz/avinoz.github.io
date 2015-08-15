@@ -8,7 +8,6 @@ html {
   overflow-y: hidden;
   overflow-x: hidden;
   font-family: Geneva, Helvetica;
-  font-size: 15px;
 }
 
 
@@ -40,7 +39,6 @@ h4 {
 a {
   text-decoration: none;
   color: #F0F0F0;
-  padding: 3px 10px 4px 10px;
 }
 
 a:hover {
@@ -98,12 +96,17 @@ header {
   position: relative;
   left: -8px;
   max-height: 16px;
+  font-size: 15px;
 }
 
 .nav_items {
   margin-left: 30px;
   margin-right: 5px;
   display: inline;
+}
+
+.nav_items a {
+    padding: 3px 10px 4px 20px;
 }
 
 .nav_light {
@@ -196,12 +199,13 @@ width: 90%
   float: left;
 }
 
-#blog_posts, #blog_left, #blog_right {
-  width: 200px;
-  height: 82px;
+#blog_posts, #blog_left, #blog_center, #blog_right {
+  width: 180px;
+  height: 200px;
   float: left;
   position: relative;
   margin-top: 30px;
+  overflow: hidden;
 }
 
 #blog_posts {
@@ -211,11 +215,23 @@ width: 90%
   top: -7px
 }
 
+#blog_links a {
+  color: white;
+  font-size: 13px;
+  padding: 2px 10px 3px 5px;
+}
+
+.each {
+  margin-top: 20px;
+  position: relative;
+  top: -20px;
+}
+
 .blog_span {
   display: block;
   color: gray;
   font-size: 10px;
-  margin: 0px 20px 5px 12px;
+  margin: 0px 0px 0px -15px;
 }
 
 #under_main_right {
@@ -227,6 +243,11 @@ width: 90%
   float: right;
   text-align: right;
   margin-top: 0px;
+  font-size: 14px;
+}
+
+#under_main_right a{
+  padding: 1px 5px 2px 5px;
 }
 
 .social_links li {

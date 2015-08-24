@@ -29,17 +29,59 @@
             <h2>Ruby v.s. Javascript</h2>
             <h4>08/21/15</h4>
             <section>
+
+
+    <table id="t02">
+    <tr>
+
+      <td><pre><code class="ruby">
+        <h4 id="java">RUBY CLASS</h4>
+     class Person
+        attr_accessor :firstName, :lastName
+
+        def initialize(firstName, lastName)
+          @firstName = firstName
+          @lastName = lastName
+         end
+
+        def fullName
+          @firstName + " " + @lastName
+         end
+       end
+
+      alvin = Person.new("Alvin", "Shiu")
+      alvin.fullName # "Alvin Shiu"
+      </code></pre></td>
+
+    </tr>
+    <tr>
+      <td><pre><code class="javascript">
+        <h4 id="java">JAVASCRIPT FUNCTION</h4>
+      function Person(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+
+      Person.prototype.fullName = function() {
+         return this.firstName + " " + this.lastName;
+      }
+
+      var alvin = new Person("Alvin", "Shiu");
+      alvin.fullName(); // "Alvin Shiu"
+      </code></pre></td>
+    </tr>
+  </table>
               <p>
-                The first thing that people always say when asked about Ruby is that it’s is an object oriented language but what does that really mean?
               </p>
               <p>
-                In Ruby, everything is an object. Each object has defined responsibilities and interact with each other by sending messages. This way of thinking is what people coin Object Oriented Programming (OOP). A more traditional type of thinking is called Function Programming (FP) where the language is typically divided into two parts: data and operations (on the data).
               </p>
               <p>
-                So what does all this mean in terms of design? Well, programs are constantly getting new features and updated meaning we need to revisit the code and add, change and subtract things. All programmers at some point need to lay out a data structure for their program and knowledge of how the language thinks allow you to organize your code efficiently.
               </p>
               <p>
-                Designing for future expansion and change is vital. It’s so important that there’s an acronym just for it: DRY: Don’t Repeat Yourself.
+                Even though Ruby and Javascript are two different languages they are both object-oriented and share many similarities in their code.
+              </p>
+              <p>
+
                </p>
             </section>
            </main>

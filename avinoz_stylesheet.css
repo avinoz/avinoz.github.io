@@ -210,8 +210,8 @@ width: 90%
   float: left;
 }
 
-#blog_posts, #blog_left, #blog_center, #blog_right {
-  width: 180px;
+#blog_posts, #blog_left, #blog_center, #blog_right, #blog_newest{
+  width: 162px;
   height: 300px;
   float: left;
   position: relative;
@@ -307,5 +307,35 @@ footer {
   width: 400px;
   margin: 0px 0px 20px 40px;
 }
+
+th {
+  color: orange;
+  font-size: 14px;
+  padding:  10px 10px 6px 10px;
+  margin: 0px;
+  min-width: 100px;
+}
+
+table#t01 {
+  position: relative;
+  left: 5%;
+  border-collapse: collapse;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+  }
+table#t01 tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
+td {
+  color: gray;
+  text-align: left;
+  padding:  5px 15px 5px 10px;
+}
+
+
+
 
 /* END */

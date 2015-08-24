@@ -85,14 +85,14 @@ header {
   font-size: 60px;
   text-align: right;
   margin-bottom: 0px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-right: 20px;
 }
 
 #header_position {
   text-align: right;
   color: #909090;
-  margin: 8px 33px 10px 0px
+  margin: 8px 33px 20px 0px
 }
 
 /* ------------ NAVIGATION ------------  */
@@ -335,7 +335,23 @@ td {
   padding:  5px 15px 5px 10px;
 }
 
+table#t02 {
+  position: relative;
+  left: 0px;
+  width: 480px;
+  border-collapse: collapse;
+}
 
+table#t02 tr:nth-child(even) {
+    background-color: #eee;
+  }
+table#t02 tr:nth-child(odd) {
+    background-color: #fff;
+  }
 
-
+#java {
+  color: gray;
+  margin: 0px 0px 0px 20px;
+  font-size: 15px;
+}
 /* END */

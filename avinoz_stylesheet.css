@@ -355,10 +355,9 @@ table#t02 tr:nth-child(odd) {
 
 iframe {
   width: 60%;
-  position: relative;
-  left: 0px;
+  height: 400px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
-
-
 
 /* END */

@@ -352,4 +352,13 @@ table#t02 tr:nth-child(odd) {
   margin: 0px 0px 0px 20px;
   font-size: 15px;
 }
+
+iframe {
+  width: 60%;
+  position: relative;
+  left: 0px;
+}
+
+
+
 /* END */

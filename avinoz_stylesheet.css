@@ -195,7 +195,7 @@ width: 90%
   position: relative;
   height: 120px;
   left: 20px;
-  width: 80%;
+  width: 70%;
   overflow-y: scroll;
   float: left;
   /*background-color: yellow;*/
@@ -207,7 +207,6 @@ width: 90%
   float: left;
   position: relative;
   margin-top: 30px;
-  /*;*/
 }
 
 #blog_posts {
@@ -355,9 +354,11 @@ table#t02 tr:nth-child(odd) {
 
 iframe {
   width: 60%;
-  height: 400px;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  height: 450px;
+  left: 0px;
+  top: 0px;
 }
+
+
 
 /* END */

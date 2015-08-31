@@ -142,7 +142,7 @@ header {
   padding-top: 20px;
   margin-left: -10px;
   text-align: left;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -353,10 +353,12 @@ table#t02 tr:nth-child(odd) {
 }
 
 iframe {
-  width: 60%;
-  height: 450px;
+  width: 102%;
+  height: 380px;
   left: 0px;
   top: 0px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 

@@ -133,7 +133,7 @@ header {
 #left {
   background-image: url("./img/felt_bg.jpg");
   background-color: white;
-  width: 100%;
+  width: 103%;
   height: 430px;
   position: absolute;
   top: 0px;
@@ -181,7 +181,7 @@ header {
 }
 
 section {
-width: 90%
+  width: 90%
 }
 
 /* ------------ UNDER MAIN CONTAINER ------------  */

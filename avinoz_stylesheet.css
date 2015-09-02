@@ -5,8 +5,8 @@
 html {
   background-image: URL(./img/gray.jpg);
   background-color: #B8B8B8;
-  overflow-y: hidden;
-  overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   font-family: Geneva, Helvetica;
 }
 

@@ -1,0 +1,62 @@
+html {
+    background-image: url("./img/felt_bg.jpg");
+    background-color: white;
+    font-family: Geneva, Hevetica;
+    font-size: 12px;
+}
+
+header {
+    width: 500px;
+    position: relative;
+    margin-left: 2%;
+}
+
+h1 {
+    color: orange;
+    font-size: 40px;
+}
+
+h2 {
+    color: lightgray;
+    font-size: 20px;
+    position: relative;
+    margin-top: -25px;
+    margin-bottom: 20px;
+}
+
+summary {
+    color: black;
+    background-color: red;
+    background-color: lightgray;
+    padding: 5px 10px 5px 10px;
+    position: relative;
+    bottom: -5px;
+}
+
+details p {
+    padding: 10px;
+    background-color: white;
+}
+
+details {
+    background-color: white;
+    padding: 0px 0px 5px 0px;
+}
+
+#container {
+    width: 500px;
+    position: relative;
+    margin-left: 2%;
+}
+
+a {
+    color: orange;
+    text-decoration: none;
+    font-size: 10px;
+    padding: 10px;
+}
+
+br {
+    position: relative;
+    top: -50px;
+}

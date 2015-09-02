@@ -6,7 +6,7 @@ html {
   background-image: URL(./img/gray.jpg);
   background-color: #B8B8B8;
   overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-x: auto;
   font-family: Geneva, Helvetica;
 }
 
@@ -81,14 +81,14 @@ header {
   font-size: 60px;
   text-align: right;
   margin-bottom: 0px;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-right: 20px;
 }
 
 #header_position {
   text-align: right;
   color: #909090;
-  margin: 8px 33px 20px 0px
+  margin: 8px 33px 30px 0px
 }
 
 /* ------------ NAVIGATION ------------  */
@@ -193,10 +193,10 @@ section {
 
 #under_main_left {
   position: relative;
-  height: 120px;
+  height: 200px;
   left: 20px;
   width: 70%;
-  overflow-y: scroll;
+/*  overflow-y: scroll;*/
   float: left;
   /*background-color: yellow;*/
 }

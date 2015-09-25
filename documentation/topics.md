@@ -36,8 +36,10 @@ This is my Checklist of things I need to know routly separated by the week in wh
 * **Schema Diagrams**
 * **Relationships** - One to One, One to Many & Many to Many
 
------ FINAL ASSESSMENT INCLUDES ALL TOPICS ABOVE -----
+<details>
+  <summary>Topics After Assessment</summary>
+  <p>* **SQL** - queries</p>
+  <p>* **Active Record** - Migrations, Models, Control-Code</p>
+  <p>* **AR Naming Conventions** - (bat-shit crazy)</p>
+</details>
 
-* **SQL** - queries
-* **Active Record** - Migrations, Models, Control-Code
-* **AR Naming Conventions** - (bat-shit crazy)

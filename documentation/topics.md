@@ -1,6 +1,6 @@
 # Topics in Phase One
 
-This is my Checklist of things I need to know routly separated by the week in which it occurs.
+This is my Checklist of things I need to know. It's roughly separated by the week in which it occurs.
 
 ### W1: Ruby
 * **GitHub** - add, commits, push, branches, upstream/remote, forking etc.
@@ -37,9 +37,9 @@ This is my Checklist of things I need to know routly separated by the week in wh
 * **Relationships** - One to One, One to Many & Many to Many
 
 <details>
-  <summary>Topics After Assessment</summary>
-  <p>* **SQL** - queries</p>
-  <p>* **Active Record** - Migrations, Models, Control-Code</p>
-  <p>* **AR Naming Conventions** - (bat-shit crazy)</p>
+  <summary><b>Topics After Assessment</b></summary>
+  <br>* **SQL** - queries</br>
+  <br>* **Active Record** - Migrations, Models, Control-Code</br>
+  <br>* **AR Naming Conventions** - (bat-shit crazy)</br>
 </details>
 

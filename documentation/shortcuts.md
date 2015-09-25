@@ -1,11 +1,12 @@
 # Shortcuts
 
+### Sublime
 
-<table border="1" class="docutils">
-  <colgroup>
-    <col width="22%" />
-    <col width="65%" />
-  </colgroup>
+<table>
+<!--   <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup> -->
   <thead valign="bottom">
     <tr class="row-odd">
       <th class="head">Keypress</th>
@@ -26,11 +27,11 @@
       <td>Insert line before</td>
     </tr>
     <tr class="row-odd">
-      <td>⌘ + ⌃ + ↑</td>
+      <td>⌘ | ⌃ | ↑</td>
       <td>Move line/selection up</td>
     </tr>
     <tr class="row-even">
-      <td>⌘ + ⌃ + ↓</td>
+      <td>⌘ | ⌃ | ↓</td>
       <td>Move line/selection down</td>
     </tr>
     <tr class="row-odd">
@@ -41,78 +42,101 @@
       <td>⌘ + D</td>
       <td>Select word - Repeat to select next occurrence</td>
     </tr>
-    <tr class="row-odd"><td>⌃ + ⌘ + G</td>
-    <td>Select all occurrences of current selection</td>
+    <tr class="row-odd">
+      <td>⌃ + ⌘ + G</td>
+      <td>Select all occurrences of current selection</td>
     </tr>
-    <tr class="row-even"><td>⌃ + ⇧ + ↑</td>
-    <td>Extra cursor on the line above</td>
+    <tr class="row-even">
+      <td>⌃ + ⇧ + ↑</td>
+      <td>Extra cursor on the line above</td>
     </tr>
-    <tr class="row-odd"><td>⌃ + ⇧ + ↓</td>
-    <td>Extra cursor on the line below</td>
+    <tr class="row-odd">
+      <td>⌃ + ⇧ + ↓</td>
+      <td>Extra cursor on the line below</td>
     </tr>
-    <tr class="row-even"><td>⌃ + M</td>
-    <td>Jump to closing parentheses
+    <tr class="row-even">
+      <td>⌃ + M</td>
+      <td>Jump to closing parentheses
     Repeat to jump to opening parentheses</td>
     </tr>
-    <tr class="row-odd"><td>⌃ + ⇧ + M</td>
-    <td>Select all contents of the current parentheses</td>
+    <tr class="row-odd">
+      <td>⌃ + ⇧ + M</td>
+      <td>Select all contents of the current parentheses</td>
     </tr>
-    <tr class="row-even"><td>⌃ + A</td>
-    <td>Move to beginning of line</td>
+    <tr class="row-even">
+      <td>⌃ + A</td>
+      <td>Move to beginning of line</td>
     </tr>
-    <tr class="row-odd"><td>⌃ + E</td>
-    <td>Move to end of line</td>
+    <tr class="row-odd">
+      <td>⌃ + E</td>
+      <td>Move to end of line</td>
     </tr>
-    <tr class="row-even"><td>⌘ + K, ⌘ + K</td>
-    <td>Delete from cursor to end of line</td>
+    <tr class="row-even">
+      <td>⌘ + K, ⌘ + K</td>
+      <td>Delete from cursor to end of line</td>
     </tr>
-    <tr class="row-odd"><td>⌘ + K + ⌫</td>
-    <td>Delete from cursor to start of line</td>
+    <tr class="row-odd">
+      <td>⌘ + K + ⌫</td>
+      <td>Delete from cursor to start of line</td>
     </tr>
-    <tr class="row-even"><td>⌘ + ]</td>
-    <td>Indent current line(s)</td>
+    <tr class="row-even">
+      <td>⌘ + ]</td>
+      <td>Indent current line(s)</td>
     </tr>
-    <tr class="row-odd"><td>⌘ + [</td>
-    <td>Un-indent current line(s)</td>
+    <tr class="row-odd">
+      <td>⌘ + [</td>
+      <td>Un-indent current line(s)</td>
     </tr>
-    <tr class="row-even"><td>⌘ + ⇧ + D</td>
-    <td>Duplicate line(s)</td>
+    <tr class="row-even">
+      <td>⌘ + ⇧ + D</td>
+      <td>Duplicate line(s)</td>
     </tr>
-    <tr class="row-odd"><td>⌘ + J</td>
-    <td>Join line below to the end of the current line</td>
+    <tr class="row-odd">
+      <td>⌘ + J</td>
+      <td>Join line below to the end of the current line</td>
     </tr>
-    <tr class="row-even"><td>⌘ + /</td>
-    <td>Comment/un-comment current line</td>
+    <tr class="row-even">
+      <td>⌘ + /</td>
+      <td>Comment/un-comment current line</td>
     </tr>
-    <tr class="row-odd"><td>⌘ + ⌥ + /</td>
-    <td>Block comment current selection</td>
+    <tr class="row-odd">
+      <td>⌘ + ⌥ + /</td>
+      <td>Block comment current selection</td>
     </tr>
-    <tr class="row-even"><td>⌘ + Y</td>
-    <td>Redo, or repeat last keyboard shortcut command</td>
+    <tr class="row-even">
+      <td>⌘ + Y</td>
+      <td>Redo, or repeat last keyboard shortcut command</td>
     </tr>
-    <tr class="row-odd"><td>⌘ + ⇧ + V</td>
-    <td>Paste and indent correctly</td>
+    <tr class="row-odd">
+      <td>⌘ + ⇧ + V</td>
+      <td>Paste and indent correctly</td>
     </tr>
-    <tr class="row-even"><td>⌃ + Space</td>
-    <td>Select next auto-complete suggestion</td>
+    <tr class="row-even">
+      <td>⌃ + Space</td>
+      <td>Select next auto-complete suggestion</td>
     </tr>
-    <tr class="row-odd"><td>⌃ + U</td>
-    <td>Soft undo; jumps to your last change before
+    <tr class="row-odd">
+      <td>⌃ + U</td>
+      <td>Soft undo; jumps to your last change before
     undoing change when repeated</td>
     </tr>
-    <tr class="row-even"><td>⌃ + ⇧ + Up</td>
-    <td>Column selection up</td>
+    <tr class="row-even">
+      <td>⌃ + ⇧ + Up</td>
+      <td>Column selection up</td>
     </tr>
-    <tr class="row-odd"><td>⌃ + ⇧ + Down</td>
-    <td>Column selection down</td>
+    <tr class="row-odd">
+      <td>⌃ + ⇧ + Down</td>
+      <td>Column selection down</td>
     </tr>
-    <tr class="row-even"><td>⌃ + ⇧ +  W</td>
-    <td>Wrap  Selection in html tag</td>
+    <tr class="row-even">
+      <td>⌃ + ⇧ +  W</td>
+      <td>Wrap  Selection in html tag</td>
     </tr>
-    <tr class="row-odd"><td>⌃ + ⇧ +  K</td>
-    <td>Delete current line of cursor</td>
+    <tr class="row-odd">
+      <td>⌃ + ⇧ +  K</td>
+      <td>Delete current line of cursor</td>
     </tr>
-</tbody>
+  </tbody>
 </table>
 
 

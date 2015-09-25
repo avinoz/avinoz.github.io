@@ -4,7 +4,13 @@ Here is a list of enumerables that I use pretty frequently.
 [Read more at Ruby-Docs](http://ruby-doc.org/core-2.2.3/Enumerable.html)
 
 ### Information
-- `#count
+- `#count`
+
+
+<details>
+<summary>`#count`</summary>
+<p>The Array.from() method creates a new Array instance from an array-like or iterable object. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Read More</a></p></details>
+
 - `#first`
 - `#include?`
 - `#none?`

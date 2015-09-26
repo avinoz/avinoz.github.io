@@ -17,4 +17,3 @@ As to not confuse anyone, this is my version of the cirriculum handbook. Please 
 - [Acronyms](https://docs.google.com/spreadsheets/d/1jbE01iIeYKw7dstl5q2TfdUceCEKdTFKrC9itn0CV_Y/edit?usp=sharing)
 - [Buzzwords](buzzwords.md)
 - [Diagrams](diagrams.md)
-

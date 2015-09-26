@@ -1,5 +1,9 @@
 # Shortcuts
 
+```
+⌥ Alt/option        ⌘ Command         ⌃  Control        ⇧ Shift
+```
+
 ### Sublime
 
 <table>
@@ -23,7 +27,7 @@
       <td>Insert line before</td>
     </tr>
     <tr class="row-odd">
-      <td>⌘ | ⌃ | ⇅</td>
+      <td>⌘ | ⌃ | ↓↑</td>
       <td>Move line/selection up/down</td>
     </tr>
     <tr class="row-even">
@@ -39,7 +43,7 @@
       <td>Select all occurrences of current selection</td>
     </tr>
     <tr class="row-odd">
-      <td>⌃| ⇧| ⇅</td>
+      <td>⌃| ⇧ | ↓↑</td>
       <td>Extra cursor on the line above</td>
     </tr>
     <tr class="row-even">
@@ -68,7 +72,7 @@
       <td>Delete from cursor to start of line</td>
     </tr>
     <tr class="row-even">
-      <td>⌘ | ][</td>
+      <td>⌘ | ] [</td>
       <td>Indent/un-indent current line(s)</td>
     </tr>
     <tr class="row-odd">
@@ -101,7 +105,7 @@
     undoing change when repeated</td>
     </tr>
     <tr class="row-even">
-      <td>⌃ | ⇧ | ⇅</td>
+      <td>⌃ | ⇧ | ↓↑</td>
       <td>Column selection up/down</td>
     </tr>
     <tr class="row-odd">
@@ -112,21 +116,34 @@
 </table>
 
 
-<!-- ### Sublime
-```
+### Spectacle
+
+<table>
+  <thead valign="bottom">
+    <tr class="row-odd">
+      <th class="head">Keypress</th>
+      <th class="head">Command</th>
+    </tr>
+  </thead>
+  <tbody valign="top">
+    <tr class="row-even">
+      <td>⌥ | ⌘ | C</td>
+      <td>Center</td>
+    </tr>
+    <tr class="row-even">
+      <td>⌘ | X</td>
+      <td>Cut line</td>
+     </tr>
+  </tbody>
+</table>
+
+
+<!-- ⌥ Option | ⇧ Shift |
 ⌘ | X
 ⌘ | ↩
 ⌘ | ⇧ | ↩
 ⌘ | ⌃ | ↕
+⇆
+↓↑
 
-``` -->
-<!-- ⌥ Option | ⇧ Shift |
-
-↑
-↓
-→
-←
-↔ ⇆
-↕
-^
  -->

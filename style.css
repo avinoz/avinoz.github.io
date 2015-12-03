@@ -118,11 +118,11 @@ h2{
 }
 
 .navbtnbg:hover{
-	color: #FF69B4;
+	color: orange;
 }
 
 .navbtnbg:active{
-	color: orange;
+	color: #FF69B4;
 }
 
 #header, #intro, #second{
@@ -142,6 +142,7 @@ h2{
 #second{
 	/*background: #fafafa;*/
 	background: white url(images/screen.jpg) 50% 0 no-repeat fixed;
+	background-size:100%;
 	/*color: white;*/
 	color: black;
 	height: 1500px;
@@ -162,8 +163,8 @@ h2{
 }
 
 #third{
-	background: #fafafa;
-	/*background: url(images/thirdBG.jpg) 50% 0 no-repeat fixed;*/
+	background: #fafafa url(images/wanders.jpg) 50% 0 no-repeat fixed;
+	background-size:100%;
 	/*color: white;*/
 	color: black;
 	height: 650px;
@@ -171,8 +172,8 @@ h2{
 }
 
 #fourth{
-	background: white;
-	/*background: url(images/secondBG.jpg) 50% 0 no-repeat fixed;*/
+	background: white url(images/pique.jpg) 50% 0 no-repeat fixed;
+	background-size: 100%;
 	/*color: white;*/
 	color: black;
 	height: 1300px;
@@ -181,16 +182,12 @@ h2{
 	padding: 0;
 }
 
-#fourth .bg{
-	background: url(images/trainerscopy.png) 50% 0 no-repeat fixed;
-	height: 1000px;
-	margin: 0 auto;
-	padding: 0;
-	position: absolute;
-	width: 900px;
-	z-index: 200;
+/*.blurbg{
+	background: rgba(255, 255, 255, .8);
+	padding: 20px;
+	-webkit-filter: blur(10px);
 }
-
+*/
 #fifth{
 	background: #eaeaea;
 	height: 3.4vh;

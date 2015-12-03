@@ -37,6 +37,14 @@ a{
 	color: black;
 }
 
+a:hover{
+	color: orange;
+}
+
+a:active{
+	color: #FF69B4;
+}
+
 .story li{
 	list-style-type: none;
 	margin-left: -40px;
@@ -68,7 +76,8 @@ h2{
 	font-size-adjust:0.531;
 	font-weight:100;
 	font-style:normal;
-	margin: 0;
+	margin: 0 0 1vh 0;
+
 }
 
 #header h1, #pixels{
@@ -109,7 +118,7 @@ h2{
 }
 
 .navbtnbg:hover{
-	color: #FF0080;
+	color: #FF69B4;
 }
 
 .navbtnbg:active{
@@ -132,7 +141,7 @@ h2{
 
 #second{
 	/*background: #fafafa;*/
-	background: #fafafa url(images/screen.jpg) 50% 0 no-repeat fixed;
+	background: white url(images/screen.jpg) 50% 0 no-repeat fixed;
 	/*color: white;*/
 	color: black;
 	height: 1500px;
@@ -151,16 +160,6 @@ h2{
 	width: 1200px;
 	z-index: 200;
 }
-
-/*#second .bg{
-	background: url(images/trainers.gif) 50% 0 no-repeat fixed;
-	height: 1300px;
-	margin: 0 auto;
-	padding: 0;
-	position: absolute;
-	width: 900px;
-	z-index: 200;
-}*/
 
 #third{
 	background: #fafafa;
@@ -193,10 +192,12 @@ h2{
 }
 
 #fifth{
-	background: #ccc;
-	height: 120px;
+	background: #eaeaea;
+	height: 3.4vh;
 	margin: 0 auto;
-	padding: 40px 0 0 0;
+	width: 100vw;
+	position: fixed;
+	bottom: 0px;
 }
 
 .story{
@@ -210,4 +211,29 @@ h2{
 	padding: 100px 0 0 0;
 	position: relative;
 	width: 380px;
+}
+
+.footer p{
+	padding: 0 2vw 0 2vw;
+	font-weight: 200;
+	font-size: 12px;
+	line-height: 3.4vh;
+}
+
+.fleft{
+	float: left;
+	display: inline-block;
+}
+
+.fright{
+	float: right;
+}
+
+#archi{
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: .7em;
+	font-weight:100;
+	font-style:normal;
+	letter-spacing: 1.5px;
+	margin: 120px 0 20px 0;
 }

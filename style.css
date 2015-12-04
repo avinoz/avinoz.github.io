@@ -79,11 +79,13 @@ h2{
 .float-left{
 	float: left;
 	margin: 0 0 0 20px;
+	z-index: 200;
 }
 
 .float-right{
 	float: right;
 	margin: 0 20px 0 0;
+	z-index: 200;
 }
 
 .center{
@@ -157,7 +159,7 @@ h2{
 	background-size:100%;
 	/*color: white;*/
 	color: black;
-	height: 650px;
+	height: 750px;
 	padding: 100px 0 0 0;
 }
 
@@ -252,6 +254,60 @@ h2{
 #invis{
 	display: none;
 }
+
+
+/* MODALS */
+
+.more{
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	font-weight:100;
+	font-style:normal;
+	letter-spacing: 1.5px;
+	cursor: pointer;
+}
+
+.float{
+	position: fixed;
+	background: rgba(0,0,0,.8);
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 97vh;
+	z-index: 500;
+	cursor: pointer;
+}
+
+.ftwo, .fthree, .ffour{
+	display: none;
+}
+
+#intwo, #inthree, #infour{
+	color: gray;
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	font-weight:200;
+	font-style:normal;
+	letter-spacing: 1.5px;
+
+	background: black;
+	width: 80vw;
+	height: 77vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 10vh 10vw 13vh 10vw;
+}
+
+
+/*
+#intwo{
+	background: red;
+}
+
+#inthree{
+	background: blue;
+}*/
 
 /* SOURCES:
 http://codecall.net/2014/01/26/10-awesome-parallax-scrolling-tutorials-with-code/

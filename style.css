@@ -72,7 +72,6 @@ h2{
 }
 
 #header h1, #pixels{
-	/*color: #48941A;*/
 	color: black;
 }
 
@@ -124,7 +123,6 @@ h2{
 
 #intro{
 	background: #fafafa;
-	/*background: #fafafa url(images/intro.jpg) 50% 0 no-repeat fixed;*/
 	color: black;
 	height: 880px;
 	margin: 0 auto;
@@ -132,10 +130,8 @@ h2{
 }
 
 #second{
-	/*background: #fafafa;*/
 	background: white url(images/screen.jpg) 50% 0 no-repeat fixed;
 	background-size:100%;
-	/*color: white;*/
 	color: black;
 	height: 1500px;
 	margin: 0 auto;
@@ -157,7 +153,6 @@ h2{
 #third{
 	background: #fafafa url(images/wanders.jpg) 50% 0 no-repeat fixed;
 	background-size:100%;
-	/*color: white;*/
 	color: black;
 	height: 750px;
 	padding: 100px 0 0 0;
@@ -183,7 +178,6 @@ h2{
 
 #fifth{
 	background: #fafafa;
-	/*background: #fafafa url(images/intro.jpg) 50% 0 no-repeat fixed;*/
 	color: black;
 	height: 600px;
 	padding: 0;
@@ -255,7 +249,6 @@ h2{
 	display: none;
 }
 
-
 /* MODALS */
 
 .more{
@@ -269,7 +262,7 @@ h2{
 
 .float{
 	position: fixed;
-	background: rgba(0,0,0,.8);
+	background: rgba(0,0,0,.2);
 	top: 0;
 	left: 0;
 	width: 100vw;
@@ -282,32 +275,99 @@ h2{
 	display: none;
 }
 
-#intwo, #inthree, #infour{
+/*#intwo, #inthree, #infour{
 	color: gray;
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	font-weight:200;
 	font-style:normal;
 	letter-spacing: 1.5px;
+}*/
 
-	background: black;
+.close{
+	background: red;
+	width: 20px;
+	height: 20px;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 500;
+}
+
+/* SLIDESHOW */
+
+.slidecont{
 	width: 80vw;
 	height: 77vh;
 	position: fixed;
 	top: 0;
 	left: 0;
 	margin: 10vh 10vw 13vh 10vw;
+	overflow:hidden;
+	vertical-align: middle;
 }
 
-
-/*
-#intwo{
-	background: red;
+.slidecont ul{
+	list-style:none outside none;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+	width: auto;
+	height: auto;
+	position: fixed;
+	top: 10vh;
 }
 
-#inthree{
-	background: blue;
-}*/
+.slidecont img{
+	width: 80vw;
+	height: 100%;
+}
+
+.slidecont li:first-child{
+	display:list-item;
+	position:absolute;
+}
+
+.slidecont li{
+	position:absolute;
+	display:none;
+}
+
+.slidecont .nextButton{
+	height:72px;
+	width:68px;
+	position:absolute;
+	background:url('images/buttons.png') no-repeat;
+	top:50%;
+	margin-top:-36px;
+	cursor:pointer;
+	z-index:2000;
+	background-position:right top;
+	right:0
+}
+
+.slidecont .nextButton:hover{
+	background-position:right
+	bottom;right:0;
+}
+
+.slidecont .prevButton{
+	height:72px;
+	width:68px;
+	position:absolute;
+	background:url('images/buttons.png') no-repeat;
+	top:50%;
+	margin-top:-36px;
+	cursor:pointer;
+	z-index:2000;
+	background-position:left top;
+	left:0
+}
+
+.slidecont .prevButton:hover{
+	background-position:left
+	bottom;left:0;
+}
 
 /* SOURCES:
 http://codecall.net/2014/01/26/10-awesome-parallax-scrolling-tutorials-with-code/

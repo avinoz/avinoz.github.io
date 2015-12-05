@@ -2,15 +2,15 @@
 
 $(document).ready(function(){
   $('.two').click(function(){
-    $('.ftwo').slideToggle();
+    $('.ftwo').slideToggle('slow');
   });
 
   $('.three').click(function(){
-    $('.fthree').slideToggle();
+    $('.fthree').slideToggle('slow');
   });
 
   $('.four').click(function(){
-    $('.ffour').slideToggle();
+    $('.ffour').slideToggle('slow');
   });
 
   $('.close').click(function(){

@@ -101,7 +101,7 @@
     background: white url(images/mphonebg.jpg) 50% 0 no-repeat fixed;
     background-size: 100vw;
     color: black;
-    height: 3000px;
+    height: 3300px;
     margin: 0 auto;
     overflow: hidden;
     padding: 0;
@@ -116,6 +116,10 @@
     background: url(images/miphone.gif) 50% 0 no-repeat fixed;
     z-index: 250;
     /*border: green solid 1px;*/
+  }
+
+  #second h2{
+    margin: 12% 0 5% 10%;
   }
 
   .more{

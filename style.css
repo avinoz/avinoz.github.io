@@ -34,13 +34,13 @@ a:hover{
 a:active{
 	color: #FF69B4;
 }
-
+/*
 .story li{
 	list-style-type: none;
 	margin-left: -40px;
 	font-size: 13px;
 }
-
+*/
 .navbtn{
 	color: black;
 	text-decoration: none;
@@ -121,6 +121,8 @@ h2{
 	width: 100%;
 }
 
+/* INTRO SECTION */
+
 #intro{
 	background: #fafafa;
 	color: black;
@@ -128,6 +130,17 @@ h2{
 	margin: 0 auto;
 	padding: 0;
 }
+
+#archi{
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: .7em;
+	font-weight:100;
+	font-style:normal;
+	letter-spacing: 1.5px;
+	margin: 120px 0 20px 0;
+}
+
+/* SECOND SECTION */
 
 #second{
 	background: white url(images/screen.jpg) 50% 0 no-repeat fixed;
@@ -147,8 +160,14 @@ h2{
 	padding: 0;
 	position: absolute;
 	width: 1500px;
-	z-index: 200;
+	z-index: 250;
 }
+
+#floatphone{
+	transform: scale(0.5,0.5);
+}
+
+/* THIRD SECTION */
 
 #third{
 	background: #fafafa url(images/wanders.jpg) 50% 0 no-repeat fixed;
@@ -157,6 +176,8 @@ h2{
 	height: 750px;
 	padding: 100px 0 0 0;
 }
+
+/* FOURTH SECTION */
 
 #fourth{
 	background: white url(images/pique.jpg) 50% 0 no-repeat fixed;
@@ -169,12 +190,7 @@ h2{
 	padding: 150px 0 0 0;
 }
 
-/*.blurbg{
-	background: rgba(255, 255, 255, .8);
-	padding: 20px;
-
-}
-*/
+/* FIFTH SECTION */
 
 #fifth{
 	background: #fafafa;
@@ -184,9 +200,7 @@ h2{
 
 }
 
-#blurb{
-	margin-top: -30px;
-}
+/* SIXTH SECTION */
 
 #sixth{
 	background: #eaeaea;
@@ -195,7 +209,21 @@ h2{
 	width: 100vw;
 	position: fixed;
 	bottom: 0px;
+	z-index: 200;
 }
+
+.footer p{
+	padding: 0 3vw 0 2vw;
+	font-weight: 200;
+	font-size: 11px;
+	line-height: 3.4vh;
+}
+
+#blurb{
+	margin-top: -30px;
+}
+
+/* SHARED */
 
 .story{
 	margin: 0 auto;
@@ -210,13 +238,6 @@ h2{
 	width: 380px;
 }
 
-.footer p{
-	padding: 0 3vw 0 2vw;
-	font-weight: 200;
-	font-size: 11px;
-	line-height: 3.4vh;
-}
-
 .fleft{
 	float: left;
 	display: inline-block;
@@ -226,23 +247,10 @@ h2{
 	float: right;
 }
 
-#archi{
-	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	font-size: .7em;
-	font-weight:100;
-	font-style:normal;
-	letter-spacing: 1.5px;
-	margin: 120px 0 20px 0;
-}
-
 #badge{
 	transform: scale(0.5,0.5);
 	float: left;
 	margin: -50px 0 0 -150px;
-}
-
-#floatphone{
-	transform: scale(0.5,0.5);
 }
 
 #invis{

@@ -196,6 +196,7 @@
   .footer p{
     font-weight: 200;
     font-size: 30px;
+    line-height: 60px;
   }
 
   .story .float-left, .story .float-right{

@@ -1,0 +1,204 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* iPhone, Android rules here */
+
+  @charset "utf-8";
+  /* CSS Document */
+
+  body{
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    overflow: hidden;
+    font-weight:100;
+  }
+
+  p{
+    margin: 0 0 20px 0;
+  }
+
+  p, ul{
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-style:normal;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    font-size: 3em;
+    text-align: left;
+    padding: 0 10% 5% 10%;
+    box-sizing: border-box;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover{
+    color: orange;
+  }
+
+  a:active{
+    color: #FF69B4;
+  }
+
+  img{
+    border: 0;
+  }
+
+  h1, #pixels{
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 12.5em;
+    font-style:normal;
+    letter-spacing: 1.5px;
+    margin: 10vh 0 6vh 0;
+    text-align: center;
+  }
+
+  h2{
+   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 8em;
+    font-style:normal;
+    letter-spacing: 1px;
+    margin: 2% 0 5% 10%;
+    text-align: left;
+  }
+
+  #header h1, #pixels{
+    color: black;
+  }
+
+  #nav{
+    display: none;
+  }
+
+  #header, #intro, #second{
+    width: 100vw;
+  }
+
+/* INTRO SECTION */
+
+  #intro{
+    background: #fafafa;
+    color: black;
+    height: 1900px;
+    margin: 0;
+    padding: 0;
+  }
+
+  #archi{
+    display: none;
+/*    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    font-weight: 100;
+    font-style:normal;
+    letter-spacing: 3px;
+    padding: 0 1% 0 10%;*/
+  }
+
+/* SECOND SECTION */
+
+  #second{
+    background: white url(images/mphonebg.jpg) 50% 0 no-repeat fixed;
+    background-size: 100vw;
+    color: black;
+    height: 3000px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  #second .bg{
+    width: 100vw;
+    position: absolute;
+    top: 2000px;
+    height: 3500px;
+    transform: scale(.8, .8);
+    background: url(images/miphone.gif) 50% 0 no-repeat fixed;
+    z-index: 250;
+    /*border: green solid 1px;*/
+  }
+
+  .more{
+    display: none;
+  }
+
+  #floatphone{
+    /*border: red solid 1px;*/
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  #floatphone img{
+    width: 100vw;
+    /*border: blue solid 1px;*/
+    margin-top: 850px;
+  }
+
+/* THIRD SECTION */
+
+  #third{
+    background: #fafafa url(images/mwanders.jpg) 50% 0 no-repeat fixed;
+    background-size:100%;
+    color: black;
+    height: 2200px;
+    padding: 150px 0 0 0;
+  }
+
+/* FOURTH SECTION */
+
+  #fourth{
+    background: white url(images/mpique.jpg) 50% 0 no-repeat fixed;
+    background-size: 100%;
+    /*color: white;*/
+    color: black;
+    height: 2800px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 150px 0 0 0;
+  }
+
+/* FIFTH SECTION */
+
+  #fifth{
+    background: #fafafa;
+    color: black;
+    height: 2000px;
+    padding: 0;
+  }
+
+
+  #badge{
+    /*transform: scale(0.5,0.5);*/
+    float: right;
+    margin: 50px 0 0 -150px;
+  }
+
+/* SIXTH SECTION */
+
+  #sixth{
+    background: #eaeaea;
+    height: 60px;
+    margin: 0 auto;
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+  }
+
+  #blurb{
+    margin-top: -30px;
+  }
+
+  .footer p{
+    font-weight: 200;
+    font-size: 30px;
+  }
+
+  .story .float-left, .story .float-right{
+    padding: 100px 0 0 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
+  }
+
+}

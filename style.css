@@ -32,7 +32,7 @@ a:hover{
 }
 
 a:active{
-	color: #FF69B4;
+	color: red;
 }
 
 .navbtn{
@@ -108,7 +108,7 @@ h2{
 }
 
 .navbtnbg:active{
-	color: #FF69B4;
+	color: red;
 }
 
 #header, #intro, #second{

@@ -32,7 +32,7 @@ a:hover{
 }
 
 a:active{
-	color: #FF69B4;
+	color: red;
 }
 
 .navbtn{
@@ -108,7 +108,7 @@ h2{
 }
 
 .navbtnbg:active{
-	color: #FF69B4;
+	color: red;
 }
 
 #header, #intro, #second{
@@ -318,6 +318,7 @@ h2{
 	margin: 10vh 10vw 13vh 10vw;
 	overflow:hidden;
 	vertical-align: middle;
+	background: white;
 }
 
 .slidecont ul{

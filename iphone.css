@@ -22,7 +22,7 @@
     font-style:normal;
     letter-spacing: 1.5px;
     line-height: 1.5;
-    font-size: 3em;
+    font-size: 3.2em;
     text-align: left;
     padding: 0 10% 5% 10%;
     box-sizing: border-box;
@@ -50,7 +50,7 @@
     font-size: 12.5em;
     font-style:normal;
     letter-spacing: 1.5px;
-    margin: 10vh 0 6vh 0;
+    margin: 12vh 0 8vh 0;
     text-align: center;
   }
 
@@ -80,7 +80,7 @@
   #intro{
     background: #fafafa;
     color: black;
-    height: 1900px;
+    height: 2200px;
     margin: 0;
     padding: 0;
   }
@@ -101,7 +101,7 @@
     background: white url(images/mphonebg.jpg) 50% 0 no-repeat fixed;
     background-size: 100vw;
     color: black;
-    height: 3300px;
+    height: 3430px;
     margin: 0 auto;
     overflow: hidden;
     padding: 0;
@@ -145,7 +145,7 @@
     background: #fafafa url(images/mwanders.jpg) 50% 0 no-repeat fixed;
     background-size:100%;
     color: black;
-    height: 2200px;
+    height: 2370px;
     padding: 150px 0 0 0;
   }
 
@@ -156,7 +156,7 @@
     background-size: 100%;
     /*color: white;*/
     color: black;
-    height: 2800px;
+    height: 3200px;
     margin: 0 auto;
     overflow: hidden;
     padding: 150px 0 0 0;
@@ -167,7 +167,7 @@
   #fifth{
     background: #fafafa;
     color: black;
-    height: 2000px;
+    height: 2300px;
     padding: 0;
   }
 

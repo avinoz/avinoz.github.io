@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
   $('.two').click(function(){
     $('.ftwo').slideToggle('slow');

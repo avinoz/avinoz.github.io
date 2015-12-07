@@ -33,8 +33,8 @@ $(document).ready(function(){
         current=current+1;
     }
     nextPage = pages.eq(current);
-    nextPage.fadeIn();
     currentPage.fadeOut();
+    nextPage.fadeIn();
   });
 });
 

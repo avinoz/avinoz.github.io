@@ -34,13 +34,7 @@ a:hover{
 a:active{
 	color: #FF69B4;
 }
-/*
-.story li{
-	list-style-type: none;
-	margin-left: -40px;
-	font-size: 13px;
-}
-*/
+
 .navbtn{
 	color: black;
 	text-decoration: none;
@@ -133,7 +127,7 @@ h2{
 
 #archi{
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	font-size: .7em;
+	font-size: .8em;
 	font-weight:100;
 	font-style:normal;
 	letter-spacing: 1.5px;
@@ -161,10 +155,20 @@ h2{
 	position: absolute;
 	width: 1500px;
 	z-index: 250;
+	margin-top: 10px;
 }
 
 #floatphone{
 	transform: scale(0.5,0.5);
+}
+
+.more{
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: .8em;
+	font-weight:100;
+	font-style:normal;
+	letter-spacing: 1.5px;
+	cursor: pointer;
 }
 
 /* THIRD SECTION */
@@ -258,15 +262,6 @@ h2{
 }
 
 /* MODALS */
-
-.more{
-	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	font-size: 1em;
-	font-weight:100;
-	font-style:normal;
-	letter-spacing: 1.5px;
-	cursor: pointer;
-}
 
 .float{
 	position: fixed;

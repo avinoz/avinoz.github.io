@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Qadium SciFi Challenge</title>
+
+		<style type="text/css" title="text/css">
+			html{
+			  background: #111111;
+			}
+
+			body{
+				position: relative;
+				font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+				font-weight:200;
+				font-size: 20px;
+				letter-spacing: 1.5px;
+				line-height: 1.5;
+				color: #66ffff;
+				text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F;
+			}
+
+			#container{
+				position: relative;
+				top: 30vh;
+				width: 350px;
+				height: 350px;
+				margin: 0 auto;
+			}
+
+			#hept-con{
+				position: relative;
+				width: 350px;
+				height:350px;
+				margin: 0 auto;
+				transform: rotate(25deg);
+			}
+
+			/* NUMERICAL DATA */
+			div[id^="num"] {
+				margin: 0;
+				position: absolute;
+				font-size: 35px;
+				transform: none;
+				width: 80px;
+			}
+
+			#name{
+				position: absolute;
+				top:48%;
+				width: 100%;
+				text-align: center;
+			}
+
+			#num-1{
+				left: 48%;
+				top: 0%;
+				text-align: center;
+			}
+
+			#num-2{
+				left: 87%;
+				top: 26%;
+			}
+
+			#num-3{
+				left: 87%;
+				top: 62%;
+			}
+
+			#num-4{
+				left: 50%;
+				top: 87%;
+				text-align: center;
+			}
+
+			#num-5{
+				left: 7%;
+				top: 80%;
+				text-align: right;
+			}
+
+			#num-6{
+				left: -12%;
+				top: 45%;
+				text-align: right;
+			}
+
+			#num-7{
+				left: 3%;
+				top: 9%;
+				text-align: right;
+			}
+
+			/* GENERATES HEPTAGON */
+			/* EXTRACTED IDEA FROM http://css.michaelschrauzer.com/demos/css-polygons-into-stars.html */
+			[class^="heptagon"] div {
+				width: 1px;
+				position:absolute;
+				box-shadow: 0px 0px 2px 1px #87F;
+				}
+
+			.heptagon-1 div {
+				height:110px;
+				transform-origin:11500% 50%;
+				top: 35%;
+				left: 18%;
+				background: #66ffff;
+				}
+
+			.heptagon-2 div {
+				height:103px;
+				transform-origin:10800% 50%;
+				top: 36%;
+				left: 20%;
+				background: #66ffff;
+				}
+
+			.rot51deg {
+				transform: rotate(51.4deg);
+			}
+
+			.rot102deg {
+				transform: rotate(102.9deg);
+			}
+
+			.rot154deg {
+				transform: rotate(154.3deg);
+			}
+
+			.rot205deg {
+				transform: rotate(205.7deg);
+			}
+
+			.rot257deg {
+				transform: rotate(257.1deg);
+			}
+
+			.rot308deg {
+				transform: rotate(308.6deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="name">123.456.789.012</div>
+			<div id="num-1">22</div>
+			<div id="num-2"></div>
+			<div id="num-3"></div>
+			<div id="num-4">156</div>
+			<div id="num-5"></div>
+			<div id="num-6">443</div>
+			<div id="num-7">88</div>
+
+			<div id="hept-con">
+				<div class="heptagon-1">
+					<div></div>
+					<div class="rot51deg"></div>
+					<div class="rot102deg"></div>
+					<div class="rot154deg"></div>
+					<div class="rot205deg"></div>
+					<div class="rot257deg"></div>
+					<div class="rot308deg"></div>
+				</div>
+
+				<div class="heptagon-2">
+					<div></div>
+					<div class="rot51deg"></div>
+					<div class="rot102deg"></div>
+					<div class="rot154deg"></div>
+					<div class="rot205deg"></div>
+					<div class="rot257deg"></div>
+					<div class="rot308deg"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<!-- Prefixfree.js allows you to write prefix-free CSS: no more -webkit-transform, -moz-transform, ... -->
+	<script src="//cdn.jsdelivr.net/prefixfree/1.0.7/prefixfree.min.js"></script>
+</html>
+
+

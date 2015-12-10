@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Qadium SciFi Challenge</title>
+    <style>
+      html{
+        /*background-color: #000033;*/
+        background: #111111;
+      }
+
+      body{
+        margin: 0;
+        position: relative;
+        font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-weight:100;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        color: #66ffff;
+        text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F;
+      }
+
+      .canvas-cont {
+         width: 500px;
+         height: 500px;
+         margin: 0 auto;
+         top: 20vh;
+         position: relative;
+       }
+
+       canvas{
+        position: absolute;
+        top: -50%;
+        left: -50%;
+       }
+
+       #circA {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        background: radial-gradient(circle, #111111, #111111, #122222);
+        left: 150px;
+        top: 150px;
+        border-radius: 100px;
+        box-shadow: 0px 0px 80px rgba(136, 119, 255, 0.6);
+        text-align: center;
+       }
+
+       #circA p {
+         font-size: 80px;
+         margin: 25%;
+       }
+
+       #circB{
+        width: 390px;
+        height: 390px;
+        position: absolute;
+        left: 55px;
+        top: 55px;
+        border-top: solid rgba(136, 119, 255, 0.9) 5px;
+        border-radius: 200px;
+        box-shadow: 0px 0px 15px rgba(136, 119, 255, 0.9);
+        text-align: center;
+        transform: rotate(85deg);
+       }
+
+       #circC{
+        width: 480px;
+        height: 480px;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        border: dotted rgba(136, 119, 255, 0.1) 2px;
+        border-radius: 240px;
+        text-align: center;
+        transform: rotate(85deg);
+        box-sizing: border-box;
+       }
+
+       #trapezoid {
+        border-bottom: 100px solid rgba(136, 119, 255, 0.8);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        width: 3px;
+        position: absolute;
+        bottom: 20px;
+        left: 150px;
+        transform: rotate(30deg);
+       }
+
+       #trap-tip{
+        width: 3px;
+        height: 2px;
+        background: orange;
+       }
+
+       .partials{
+         width: 200px;
+         height: 200px;
+         border-radius: 200px 0 0 0;
+         position: absolute;
+         left: 10px;
+         top: 112px;
+         transform: rotate(-30deg);
+         background: radial-gradient(circle, #111111, #111111, #122222);
+         z-index: -1;
+       }
+    </style>
+
+    <script>
+      // EXTRACTED CONCEPT FROM http://www.knowstack.com/html5-canvas-speedometer/
+      function draw()
+      {
+        // DEFINES CANVAS AND CENTER
+        var canvas = document.getElementById("myCanvas");
+        var centerX = canvas.width / 2;
+        var centerY = canvas.height / 2;
+        var radius = canvas.height / 2 - 20;
+
+        // CREATE CIRCLE CONTEXT
+        var contextA = canvas.getContext("2d");
+        contextA.arc(centerX, centerY, radius, Math.PI, Math.PI*-1.1, true);
+        var contextB = canvas.getContext("2d");
+        contextB.arc(centerX, centerY, radius, Math.PI, Math.PI*-1.1, true);
+        var contextC = canvas.getContext("2d");
+        contextC.arc(centerX, centerY, radius, Math.PI, Math.PI*-1.1, true);
+
+        // CHANGES BG COLOR FOR CIRCLE
+        var gradient = contextA.createRadialGradient(centerX, centerY, radius-radius/2, centerX, centerY, radius-radius/8);
+        // gradient.addColorStop(0, '#ff9000');
+        // gradient.addColorStop(1, 'rgba(200, 54, 54, 0.5)');
+        contextA.fillStyle = gradient;
+        contextA.fill();
+        contextB.fill();
+
+        // MIDDLE LAYER CIRCLE
+        contextA.beginPath();
+        contextA.strokeStyle = '#66ffff';
+        contextA.shadowBlur=40;
+        contextA.shadowColor='#66ffff';
+        // contextA.strokeStyle = 'rgba(255, 102, 61, 0.8)';
+        contextA.translate(centerX,centerY);
+
+        for (var i=-50; i<=30; i++)
+        {
+          angle = Math.PI/50*i;
+          sineAngle = Math.sin(angle);
+          cosAngle = -Math.cos(angle);
+
+          if (i % 5 == 0) {
+          contextA.lineWidth = 3;
+          iPointX = sineAngle *(radius -radius/4);
+          iPointY = cosAngle *(radius -radius/4);
+          oPointX = sineAngle *(radius -radius/7);
+          oPointY = cosAngle *(radius -radius/7);
+          } else {
+          contextA.lineWidth = 1.5;
+          iPointX = sineAngle *(radius -radius/5.5);
+          iPointY = cosAngle *(radius -radius/5.5);
+          oPointX = sineAngle *(radius -radius/7);
+          oPointY = cosAngle *(radius -radius/7);
+          }
+          contextA.beginPath();
+          contextA.moveTo(iPointX,iPointY);
+          contextA.lineTo(oPointX,oPointY);
+          contextA.stroke();
+          contextA.closePath();
+        }
+
+        // OUTTER MOST CIRC
+        contextB.beginPath();
+        contextB.strokeStyle = 'rgba(102, 255, 255, 0.3)';
+
+        for (var i=-80; i<=79; i++)
+        {
+          angle = Math.PI/80*i;
+          sineAngle = Math.sin(angle);
+          cosAngle = -Math.cos(angle);
+
+          contextB.lineWidth = 1;
+          iPointX = sineAngle *(radius -radius/12);
+          iPointY = cosAngle *(radius -radius/12);
+          oPointX = sineAngle *(radius -radius/37);
+          oPointY = cosAngle *(radius -radius/37);
+
+          contextB.beginPath();
+          contextB.moveTo(iPointX,iPointY);
+          contextB.lineTo(oPointX,oPointY);
+          contextB.stroke();
+          contextB.closePath();
+        }
+
+        // OUTTER MOST CIRC
+        contextB.beginPath();
+        contextB.strokeStyle = 'rgba(136, 119, 255, .8)';
+        contextA.shadowBlur=20;
+        contextA.shadowColor= 'rgba(136, 119, 255, 1)';
+
+        for (var i=-50; i<=39; i++)
+        {
+          angle = Math.PI/50*i;
+          sineAngle = Math.sin(angle);
+          cosAngle = -Math.cos(angle);
+
+          contextB.lineWidth = 3;
+          iPointX = sineAngle *(radius -radius/3.7);
+          iPointY = cosAngle *(radius -radius/3.7);
+          oPointX = sineAngle *(radius -radius/3.8);
+          oPointY = cosAngle *(radius -radius/3.8);
+
+          contextB.beginPath();
+          contextB.moveTo(iPointX,iPointY);
+          contextB.lineTo(oPointX,oPointY);
+          contextB.stroke();
+          contextB.closePath();
+        }
+      }
+    </script>
+
+  </head>
+  <body onload="draw();">
+    <div class='canvas-cont'>
+      <div id="circA">
+        <p>28</p>
+      </div>
+      <div id="circB"></div>
+      <div id="circC"></div>
+      <div id="trapezoid"><div id="trap-tip"></div></div>
+      <div class="partials one"></div>
+      <!-- USING TRANSFORM SCALE BECAUSE AT 100% THE LINES ARE PIXELATED -->
+      <canvas class="canvas" id="myCanvas" width="1000" height="1000" style="transform:scale(.5);">
+      Your browser does not support the HTML5 canvas tag.</canvas>
+    </div>
+  </body>
+</html>

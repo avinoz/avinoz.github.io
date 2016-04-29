@@ -8,7 +8,6 @@ $(document).ready (function(e) {
     var mouseX = e.pageX/winWidth*100
     var mouseY = e.pageY/winHeight*100
     // console.log("X " + mouseX + " , Y " + mouseY);
-    console.log(mouseY)
 
   if (mouseX < 50) {
     $(".grow-right").css("width", "0px");
@@ -43,10 +42,25 @@ $(document).ready (function(e) {
   });
 
 
-  // $('.half-left').click(function(){
-  //   console.log("hello")
-  // });
+  $('.half-left').click(function(){
+    $('body').css({background: '#d6006c', transition: 'ease .5s all'})
+    $('#ball-shadow').css('visibility', 'hidden')
+    $('.text-cont').css({
+      transform: 'scale(11)',
+      transition: 'ease .5s all',
+      opacity: 0
+    })
+  });
 
+  $('.half-right').click(function(){
+    $('body').css({background: '#009dd8', transition: 'ease .5s all'})
+    $('#ball-shadow').css('visibility', 'hidden')
+    $('.text-cont').css({
+      transform: 'scale(11)',
+      transition: 'ease .5s all',
+      opacity: 0
+    })
+  });
 
 });
 

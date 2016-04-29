@@ -26,20 +26,22 @@ $(document).ready (function(e) {
 
 
    $('.half-left').hover(function(){
-    $('.half-left, grow-left').css("-webkit-filter", "brightness(110%)")
-    $('.title-left').fadeToggle('slow');
+    $('.half-left, .grow-left').css("-webkit-filter", "brightness(110%)")
+    $('.title-left').fadeToggle('fast');
   }, function(){
-    $('.title-left').fadeToggle('slow');
-    $('.half-left, grow-left').css("-webkit-filter", "brightness(100%)")
+    $('.title-left').fadeToggle('fast');
+    $('.half-left, .grow-left').css("-webkit-filter", "brightness(100%)")
   });
 
  $('.half-right').hover(function(){
-    $('.half-right, grow-right').css("-webkit-filter", "brightness(110%)")
-    $('.title-right').fadeToggle('slow');
+    $('.half-right, .grow-right').css("-webkit-filter", "brightness(110%)")
+    $('.title-right').fadeToggle('fast');
   }, function(){
-    $('.title-right').fadeToggle('slow');
-    $('.half-right, grow-right').css("-webkit-filter", "brightness(100%)")
+    $('.title-right').fadeToggle('fast');
+    $('.half-right, .grow-right').css("-webkit-filter", "brightness(100%)")
   });
+
+
 
 
   $('.half-left').click(function(){

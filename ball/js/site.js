@@ -1,15 +1,14 @@
 $(document).ready (function(e) {
 
-var window = $(document)
-
+  var window = $(document)
   var winWidth = window.width()
   var winHeight = window.height()
-
 
   window.mousemove(function(e){
     var mouseX = e.pageX/winWidth*100
     var mouseY = e.pageY/winHeight*100
-    console.log("X " + mouseX + " , Y " + mouseY);
+    // console.log("X " + mouseX + " , Y " + mouseY);
+    console.log(mouseY)
 
   if (mouseX < 50) {
     $(".grow-right").css("width", "0px");
@@ -19,14 +18,34 @@ var window = $(document)
     $(".grow-right").css("width", (mouseX-50)*2 + "px");
   }
 
-  $(".ball-cont").css("transform", "rotate(" + mouseY + "deg)")
-
+  if (mouseY < 50) {
+    $(".text-cont").css("transform", "rotate(" + (50 - mouseY) + "deg)")
+  } else if (mouseY > 50) {
+    $(".text-cont").css("transform", "rotate(" + (50 - mouseY) + "deg)")
+  }
   });
 
 
+   $('.half-left').hover(function(){
+    $('.half-left, grow-left').css("-webkit-filter", "brightness(110%)")
+    $('.title-left').fadeToggle('slow');
+  }, function(){
+    $('.title-left').fadeToggle('slow');
+    $('.half-left, grow-left').css("-webkit-filter", "brightness(100%)")
+  });
+
+ $('.half-right').hover(function(){
+    $('.half-right, grow-right').css("-webkit-filter", "brightness(110%)")
+    $('.title-right').fadeToggle('slow');
+  }, function(){
+    $('.title-right').fadeToggle('slow');
+    $('.half-right, grow-right').css("-webkit-filter", "brightness(100%)")
+  });
 
 
-
+  // $('.half-left').click(function(){
+  //   console.log("hello")
+  // });
 
 
 });

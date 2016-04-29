@@ -15,13 +15,14 @@ body {
   position: absolute;
   width: 200px;
   margin-top: -100px;
-  margin-left: calc(25vw - 100px); }
+  margin-left: calc(25vw - 100px);
+  transition: ease .5s all; }
 
 .half-left {
   background: #d6006c;
   height: 200px;
   width: 100px;
-  transition: ease .2s all;
+  transition: ease .3s all;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
   display: inline-block;
@@ -31,7 +32,7 @@ body {
   background: #009dd8;
   height: 200px;
   width: 100px;
-  transition: ease .2s all;
+  transition: ease .3s all;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   display: inline-block;
@@ -41,6 +42,7 @@ body {
   background: #d6006c;
   width: 0px;
   height: 100%;
+  transition: ease .3s all;
   margin-left: -1px;
   border-radius: 100% / 50%;
   border-top-left-radius: 0;
@@ -51,6 +53,7 @@ body {
   width: 0px;
   height: 100%;
   float: right;
+  transition: ease .3s all;
   margin-right: -1px;
   border-radius: 100% / 50%;
   border-top-right-radius: 0;

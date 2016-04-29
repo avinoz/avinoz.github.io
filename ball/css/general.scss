@@ -16,6 +16,7 @@ body {
   width: 200px;
   margin-top: -100px;
   margin-left: calc(25vw - 100px);
+  transition: ease .5s all;
 }
 .half-left {
   background: #d6006c;

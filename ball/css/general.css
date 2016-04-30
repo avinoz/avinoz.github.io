@@ -7,6 +7,17 @@ body {
   margin: 0;
   padding: 0; }
 
+#hello {
+  font-size: 3.5em;
+  width: 100vw;
+  height: 100vh;
+  color: #e0e0e0;
+  text-align: center;
+  padding-top: 46.5vh; }
+
+.openSite {
+  display: none; }
+
 .text-cont {
   position: relative;
   margin-top: calc(50% - 80px);
@@ -75,7 +86,8 @@ body {
 .plane {
   width: 600px;
   height: 600px;
-  position: fixed; }
+  position: fixed;
+  display: visible; }
 
 .A {
   background: url("../img/left.png");
@@ -95,6 +107,9 @@ body {
   background-repeat: no-repeat; }
 
 .D {
-  margin-left: calc(50% - 300px); }
+  width: 600px;
+  height: 600px;
+  position: fixed;
+  margin-left: calc(50% - 285px); }
 
 /*# sourceMappingURL=general.css.map */

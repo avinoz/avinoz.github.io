@@ -15,6 +15,17 @@ body {
   // background-position: 50% 0%;
 }
 
+#hello {
+  font-size: 3.5em;
+  width: 100vw;
+  height: 100vh;
+  color: #e0e0e0;
+  text-align: center;
+  padding-top: 46.5vh;
+}
+.openSite {
+  display: none;
+}
 
 .text-cont {
   position: relative;
@@ -92,6 +103,7 @@ body {
   width: 600px;
   height: 600px;
   position: fixed;
+  display: visible;
 }
 .A {
   background: url("../img/left.png");
@@ -111,7 +123,10 @@ body {
   background-repeat: no-repeat;
 }
 .D {
-  margin-left: calc(50% - 300px);
+  width: 600px;
+  height: 600px;
+  position: fixed;
+  margin-left: calc(50% - 285px);
 }
 
 // #ball-shadow {

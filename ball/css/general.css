@@ -1,22 +1,26 @@
 body {
+  height: 100vh;
+  width: 100vw;
   font-family: helvetica-light;
+  letter-spacing: 2px;
   font-size: 1.2em;
   margin: 0;
   padding: 0; }
 
 .text-cont {
-  margin: 0 auto;
   position: relative;
-  margin-top: calc(50vh - 80px);
-  width: 50vw;
+  margin-top: calc(50% - 80px);
+  width: 100%;
   height: 20px; }
 
 .ball-cont {
   position: absolute;
   width: 200px;
+  height: 200px;
   margin-top: -100px;
-  margin-left: calc(25vw - 100px);
-  transition: ease .5s all; }
+  margin-left: calc(50% - 100px);
+  transition: ease .5s all;
+  z-index: 5; }
 
 .half-left {
   background: #d6006c;
@@ -56,30 +60,41 @@ body {
   border-bottom-right-radius: 0; }
 
 .title-left {
-  padding-left: 10vw;
   display: none;
-  float: left; }
+  float: left;
+  font-size: 1.5em;
+  letter-spacing: 5px; }
 
 .title-right {
-  padding-right: 10vw;
+  margin-right: -50px;
   display: none;
-  float: right; }
+  float: right;
+  font-size: 1.5em;
+  letter-spacing: 5px; }
 
-#ball-shadow {
-  position: absolute;
-  left: 50%;
-  top: 70%;
-  z-index: 10;
-  margin-left: -50px;
-  width: 100px;
-  height: 60px;
-  background: rgba(20, 20, 20, 0.1);
-  box-shadow: 0px 0 20px 35px rgba(20, 20, 20, 0.1);
-  border-radius: 80px / 40px;
-  -webkit-transform: scaleY(0.3);
-  -moz-transform: scaleY(0.3);
-  -ms-transform: scaleY(0.3);
-  -o-transform: scaleY(0.3);
-  transform: scaleY(0.3); }
+.plane {
+  width: 600px;
+  height: 600px;
+  position: fixed; }
+
+.A {
+  background: url("../img/left.png");
+  background-size: 550px;
+  background-repeat: no-repeat; }
+
+.B {
+  background: url("../img/right.png");
+  background-size: 600px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  right: 0; }
+
+.C {
+  background: url("../img/back.png");
+  background-size: 600px;
+  background-repeat: no-repeat; }
+
+.D {
+  margin-left: calc(50% - 300px); }
 
 /*# sourceMappingURL=general.css.map */

@@ -11,8 +11,15 @@
 
 </head>
 <body>
+
+
+
+<div class="plane C debug"></div>
+<div class="plane A debug"></div>
+<div class="plane D debug">
+
   <div class="text-cont">
-    <div class="title-left">Digital</div>
+    <div class="title-left">DIGITAL</div>
     <div class="ball-cont">
       <div class="half-left">
         <div class="grow-right"></div>
@@ -21,8 +28,40 @@
         <div class="grow-left"></div>
       </div>
     </div>
-    <div class="title-right">Physical</div>
+    <div class="title-right">PHYSICAL</div>
   </div>
   <div id="ball-shadow"></div>
+
+</div>
+<div class="plane B debug"></div>
+
+<script type="text/javascript">
+
+$(document).ready (function(e) {
+  var window = $(document)
+  var winWidth = window.width()
+  var winHeight = window.height()
+
+  window.mousemove(function(e){
+    var planeX = e.pageX/winWidth*100
+    var planeY = e.pageY/winHeight*100
+    console.log("X " + planeX + " , Y " + planeY);
+
+    // moves planes on X axis
+    $(".A").css("left", 21 - planeX/15 + "vw");
+    $(".B").css("right", 15 - planeX/8 + "vw");
+    $(".C").css("left", 36 - planeX/60 + "vw");
+
+    // moves planes on Y axis
+    $(".A").css("top", 13 - planeY/20 + "vh");
+    $(".B").css("top", planeY/40 + 10 + "vh");
+    $(".C").css("top", planeY/60 + 15 + "vh");
+    $(".D").css("top", winHeight/50 + 4 + planeY/100 + "vh");
+
+  });
+});
+
+</script>
+
 </body>
 </html>

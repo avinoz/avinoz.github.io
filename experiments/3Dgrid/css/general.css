@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+.plane-cont {
+  perspective: 1000px;
+  perspective-origin: 50% 48%;
+  border: 1px green solid;
+  width: 100vw;
+  height: 100vh;
+  padding: 20vh;
+  box-sizing: border-box; }
+
+.plane {
+  position: absolute;
+  width: auto;
+  height: 60vw; }
+
+table {
+  transform: scale(0.8);
+  border-collapse: separate;
+  border-spacing: 200px;
+  margin-top: -200px; }
+
+td {
+  width: 200px;
+  height: 200px;
+  background: rgba(30, 30, 30, 0.8);
+  transition: all ease 0.2s;
+  text-align: center;
+  opacity: 0.6; }
+
+.B {
+  pointer-events: none; }
+  .B td {
+    pointer-events: auto; }
+
+/*# sourceMappingURL=general.css.map */

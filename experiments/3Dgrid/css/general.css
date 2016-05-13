@@ -3,9 +3,8 @@ body {
   padding: 0; }
 
 .plane-cont {
-  perspective: 1000px;
+  perspective: 1500px;
   perspective-origin: 50% 48%;
-  border: 1px green solid;
   width: 100vw;
   height: 100vh;
   padding: 20vh;
@@ -14,7 +13,8 @@ body {
 .plane {
   position: absolute;
   width: auto;
-  height: 60vw; }
+  height: 30vw;
+  transition: 0.2s ease all; }
 
 table {
   transform: scale(0.8);

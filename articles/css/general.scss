@@ -32,9 +32,9 @@ $body-margin: 60vw; // 100% minus 2x side margins
     padding: $padding;
     cursor: pointer;
     @include ease();
-    &:hover {
-      color: $magenta;
-    }
+    &:hover {color: $magenta;}
+    &:active {color: lighten($magenta, 20%);}
+
 }
 
 @mixin ease($value: 0.2s) {
@@ -136,9 +136,6 @@ h2 {
   font-size: 1.5em;
 }
 
-
-
-
 .flex-cont {
   max-width: $body-margin;
   margin: 0 auto;
@@ -173,14 +170,11 @@ h2 {
   flex-flow: row wrap;
 }
 
-
 .profile-cont {
   position: relative;
   background: #e0e0e0;
   width: 100%;
   height: 300px;
-  // background: url(http://www.dancetechacademy.com/wp-content/uploads/2012/10/background.jpg);
-  // background-size: 100% auto;
   #profile-img img {
     @include box-sizing;
     position: absolute;

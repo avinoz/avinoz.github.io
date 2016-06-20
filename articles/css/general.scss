@@ -217,11 +217,18 @@ h2 {
   margin-right: 20px;
   // border-right: $cyan-line;
   .cont {
+    position: relative;
     border: $cyan-line;
     width: 230px;
     height: 300px;
-    overflow-x: hidden;
+
     margin-bottom: 20px;
+  }
+  .square-cont {
+    width: inherit;
+    height: 260px;
+    margin-top: 40px;
+    overflow-x: hidden;
   }
   .conn-ppl, .conn-teams {
     width: 100px;
@@ -240,6 +247,8 @@ h2 {
     width: 210px;
     padding-left: 5px;
     margin: 10px 10px 0 10px;
+    position: absolute;
+    top: 0;
     @include box-sizing;
   }
 }
@@ -351,6 +360,10 @@ h2 {
       height: 200px;
       margin-left: 10px;
     }
+    .square-cont {
+      height: 160px;
+      margin-top: 40px;
+    }
   }
   .aside-B {
     order:3;
@@ -386,4 +399,5 @@ h2 {
     }
   }
   .main {min-width: 0;}
+
 }

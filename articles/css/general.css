@@ -128,11 +128,16 @@ h2 {
   flex: 1 0 0;
   margin-right: 20px; }
   .aside-A .cont {
+    position: relative;
     border: 1px #03d5f7 solid;
     width: 230px;
     height: 300px;
-    overflow-x: hidden;
     margin-bottom: 20px; }
+  .aside-A .square-cont {
+    width: inherit;
+    height: 260px;
+    margin-top: 40px;
+    overflow-x: hidden; }
   .aside-A .conn-ppl, .aside-A .conn-teams {
     width: 100px;
     height: 100px;
@@ -148,6 +153,8 @@ h2 {
     width: 210px;
     padding-left: 5px;
     margin: 10px 10px 0 10px;
+    position: absolute;
+    top: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
@@ -244,6 +251,9 @@ h2 {
       width: 100%;
       height: 200px;
       margin-left: 10px; }
+    .aside-A .square-cont {
+      height: 160px;
+      margin-top: 40px; }
 
   .aside-B {
     order: 3;

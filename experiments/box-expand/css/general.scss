@@ -1,0 +1,150 @@
+
+
+//////////////////////
+///// VARIABLES //////
+//////////////////////
+$gray: #e0e0e0;
+
+$cyan: #03d5f7;
+$magenta: #CA46CA;
+$cyan-line: 1px $cyan solid;
+$magenta-line: 1px $magenta solid;
+
+$side-margins: 20vw;
+$body-margin: 60vw; // 100% minus 2x side margins
+
+
+
+///////////////////
+///// MIXINS //////
+///////////////////
+
+@mixin font {
+  font: {
+    family: helvetica;
+    weight: lighter;
+    size: .8em;
+  }
+  line-height: 1.38em;
+  letter-spacing: 1.5x;
+}
+
+@mixin btn($side, $padding) {
+    float: $side;
+    padding: $padding;
+    cursor: pointer;
+    @include ease();
+    &:hover {color: $magenta;}
+    &:active {color: lighten($magenta, 20%);}
+
+}
+
+@mixin ease($value: 0.2s) {
+  -webkit-transition: all ease $value;
+  -moz-transition: all ease $value;
+  -ms-transition: all ease $value;
+  -o-transition: all ease $value;
+  transition: all ease $value;
+}
+
+@mixin drop-shadow($value: 0px 0px 20px 1px $indigo-med) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin debug($color: red) {
+  border: $color solid 1px;
+  @include box-sizing();
+}
+
+@mixin user-select() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin arrow($color, $margin) {
+  width: 0;
+  height: 0;
+  margin: $margin;
+  border-style: solid;
+  border-width: 10px 6.5px 0 6.5px;
+  border-color: $color transparent transparent transparent;
+}
+
+@mixin no-shadow() {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+
+
+
+
+///////////////////////
+///// PAGE BEGIN //////
+///////////////////////
+
+body {
+  @include font;
+}
+
+.article-cont {
+  width: 100%;
+}
+
+article {
+  @include box-sizing;
+  @include ease;
+  position: relative;
+  border: $cyan-line;
+
+  background: $gray;
+  height: 35px;
+  width: 45vw;
+  padding-left: 10px;
+  margin: -1px auto 0 auto;
+  line-height: 35px;
+  &:hover {
+    -webkit-filter: brightness(1.1);
+    filter: brightness(1.1);
+  }
+}
+
+.close-btn {
+  position: absolute;
+  padding: 0 12px;
+  top: 0;
+  right: 0;
+  display: none;
+  cursor: pointer;
+  -webkit-transform: scale(1.2,1); /* Safari and Chrome */
+  -moz-transform: scale(1.2,1); /* Firefox */
+  -ms-transform: scale(1.2,1); /* IE 9 */
+  -o-transform: scale(1.2,1); /* Opera */
+  transform: scale(1.2,1); /* W3C */
+}
+
+.topic-expanded {
+  @include box-sizing;
+  background: white;
+  height: 200px;
+  width: 50vw;
+  padding: 10px 20px;
+  margin: 20px auto;
+}
+
+.buffer {
+  height: 18vh;
+}
+

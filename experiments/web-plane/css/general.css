@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+.plane-cont {
+  perspective: 1000px;
+  border: 1px green solid;
+  width: 100vw;
+  height: 100vh;
+  padding: 5vh 5vw;
+  box-sizing: border-box; }
+
+.plane {
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+  background: rgba(30, 30, 30, 0.8);
+  transition: 0.2s ease all; }
+
+/*# sourceMappingURL=general.css.map */

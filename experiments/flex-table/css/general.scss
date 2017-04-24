@@ -1,0 +1,333 @@
+
+
+// COLORS USED
+
+
+// OPTION A
+$text-color: #333;
+$table-gray: #e0e0e0;
+$indigo: black;
+
+// OPTION B
+// $text-color: #e0e0e0;
+// $table-gray: #444;
+// $indigo: #41acbc;
+
+
+$table-header: darken($table-gray, 15%);
+$table-divider: darken($table-gray, 5%);
+$hi-pink: #dd1590;
+$ocean: white;
+
+
+
+@mixin break-word {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin scroll-style($width: 1px, $color: $indigo) {
+  &::-webkit-scrollbar {width: $width;}
+  &::-webkit-scrollbar-track {background: transparent;}
+  &::-webkit-scrollbar-thumb:vertical {background: $color;}
+  &::-webkit-scrollbar-thumb:vertical:hover {transform: brightness(150%);}
+  &::-webkit-scrollbar-corner {background: transparent;}
+}
+
+@mixin flex($val: 0, $dir: row, $wrap: wrap) {
+  display: flex;
+  display: -webkit-flex;
+  flex-grow: $val;
+  -webkit-flex-grow: $val;
+  flex-direction: $dir;
+  -webkit-flex-direction: $dir;
+  flex-wrap: $wrap;
+  -webkit-flex-wrap: $wrap;
+}
+
+
+
+
+@media (max-width: 1294px) {
+   i {display: block !important; width: 100% !important;}
+  .crd-scroll i {display: inline !important; width: auto !important;}
+  .flx-top, .flx-reach {border-bottom: solid 1px darken($table-divider, 0%) !important;}
+  .header .flx-top, .header .flx-btm {border-right: solid 1px lighten($table-header, 10%) !important; border-bottom:none !important;}
+  .header .flx-stack {border-right: solid 1px lighten($table-header, 10%) !important;}
+  .header {
+    &.crd-item:hover {-webkit-filter: brightness(100%) !important;}
+    .sz-1, .sz-2, .sz-3, .sz-4, .sz-5, .sz-6, .sz-7 {
+       &:hover {background: $indigo;}
+       width: auto !important;
+       flex-grow: 1 !important;
+       -webkit-flex-grow: 1 !important;
+       cursor: pointer !important;
+    }
+    .sz-remediation {display: none !important;}
+  }
+
+}
+
+
+
+
+
+
+
+
+
+////////
+
+body {
+  background: $ocean;
+  font-family: helvetica;
+  font-size: 0.8em;
+  font-weight: 200;
+  overflow-y: hidden;
+}
+
+i {
+  font-size: .05em;
+  padding-right: 5px;
+  color: darken($text-color, 30%);
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  transition: .15s ease all;
+  cursor: pointer !important;
+  &:hover {color: $indigo;}
+}
+
+
+.resource-type {
+  height: 60px;
+  width: 100%;
+  background: $table-header;
+  position: relative;
+  transition: ease .2s all;
+  &:hover {background: lighten($table-header, 5%);}
+  p {
+   margin: 0 0 0 20px;
+   color: $text-color;
+   font-size: 1.8em;
+   line-height: 2.8em;
+   font-weight: 300;
+   font-family: "Lato";
+  }
+  .btn-cont{
+   height: 20px;
+   width: 100px;
+   top: 1.8em;
+   right: 0;
+   position: absolute;
+  }
+  .circle {
+    margin-right: 10px;
+    background: lighten($table-header, 10%);
+    float: right;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    webkit-border-radius: 50%;
+    transition: .2s ease all;
+    cursor: pointer !important;
+    &:first-child {margin-right: 25px;}
+    &:hover {background: lighten($table-header, 20%); transform: scale(1.3);}
+    &:active {background: lighten($table-header, 30%);}
+  }
+}
+
+
+.container-fluid {
+  width: 60%;
+  margin: 0 auto;
+  min-width: 350px;
+  max-height: 700px;
+  overflow-y: scroll;
+  @include scroll-style();
+}
+
+
+.crd-item {
+  color: darken($text-color, 10%);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+
+  background: darken($table-gray, 0%);
+  box-sizing: border-box;
+
+  width: 100%;
+  border: solid 1px darken($text-color, 30%);
+  border-bottom: 1px solid transparent;
+  border-collapse: collapse;
+  transition: .2s ease all;
+  user-select: none;
+
+  @include flex(0, row, wrap);
+  &:hover {-webkit-filter: brightness(130%);}
+  &:active {-webkit-filter: brightness(150%);}
+  &:last-child { border-bottom: solid 1px darken($text-color, 30%); }
+}
+
+
+.header {
+   color: darken($text-color, 0%);
+   border: none;
+   background: $table-header;
+   font-family: "Lato";
+   border: solid 1px lighten($table-header, 5%) !important;
+   cursor: pointer !important;
+   &.crd-item:hover {-webkit-filter: brightness(100%) !important;}
+   .flx-btm, .flx-top {border: none;}
+   .flx-stack {border: none; height: 100%;}
+   .crd-row-C:hover {-webkit-filter: brightness(100%) !important; background: $table-header;}
+   .flx-top:first-child {padding-left: 10px;}
+   .sz-1, .sz-2, .sz-3, .sz-4, .sz-5, .sz-6, .sz-7 {
+     transition: .2s ease all;
+     &:hover {background: lighten($table-header, 5%);}
+  }
+}
+
+
+.crd-row-A {
+  @include flex(1, row, wrap);
+}
+
+.crd-row-B {
+  @include flex(0, row, wrap);
+}
+
+.crd-row-C {
+  @include flex(1, row, wrap);
+  &:hover {
+   -webkit-filter: brightness(130%) !important;
+   background: lighten($table-gray, 0);
+  }
+}
+
+.crd-col-cont {} // MUST EXIST TO HOLD SHAPE FOR CRD-SCROLL TO WORK
+.crd-scroll {
+  @include flex(1, column, nowrap);
+  @include scroll-style(1px, white);
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+// .FLX PREFIX IS FOR INDIVIDUAL CELLS
+
+.flx-top {
+  border-right: solid 1px darken($table-divider, 0%);
+  border-bottom: none;
+  padding: 5px;
+
+  max-height: 48px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @include break-word;
+  @include scroll-style(1px, white);
+ }
+
+.flx-btm {
+  border-right: solid 1px darken($table-divider, 0%);
+  padding: 5px;
+ }
+
+.flx-reach {
+  border-right: solid 1px darken($table-divider, 0%);
+  padding: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @include break-word;
+  @include scroll-style();
+ }
+
+.flx-stack {
+  border-right: solid 1px darken($table-divider, 0%);
+  border-bottom: solid 1px darken($table-divider, 0%);
+  padding: 5px;
+  @include break-word;
+ }
+
+.crd-row-C:last-child {
+   .flx-stack {border-bottom: none;}
+ }
+
+
+//////// STANDARDIZED SIZING
+
+
+
+
+
+.sz-remediation {
+  width: 20px;
+  @include flex(0, row, none);
+  border-right: solid 1px darken($table-divider, 0%);
+  padding: 0;
+  transition: .2s ease all;
+  img {
+   margin: 8px 5px;
+   width: 10px;
+   height: 8px;
+   cursor: pointer;
+  }
+  &:hover {background: lighten($table-gray, 3%);}
+}
+
+.sz-alert-bar {
+  width: 3px;
+  @include flex(0, row, none);
+  &.active {
+   background: $hi-pink;
+  }
+}
+
+
+.sz-1 {
+  width: 30px;
+  @include flex(1, row, wrap);
+}
+.sz-2 {
+  width: 60px;
+  @include flex(1, row, wrap);
+}
+.sz-3 {
+  width: 90px;
+  @include flex(1, row, wrap);
+}
+.sz-4 {
+  width: 120px;
+  @include flex(2, row, wrap);
+}
+
+.sz-5 {
+  width: 180px;
+  @include flex(3, row, wrap);
+}
+
+.sz-6 {
+  width: 240px;
+  @include flex(4, row, wrap);
+}
+
+.sz-7 {
+  width: 300px;
+  @include flex(5, row, wrap);
+}
+
+.sz-8 {
+  width: 400px;
+  @include flex(5, row, wrap);
+}
+
+
+
+
+/*# sourceMappingURL=general.css.map */

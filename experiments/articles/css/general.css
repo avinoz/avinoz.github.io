@@ -10,7 +10,7 @@ body {
 header {
   position: relative;
   height: 75px;
-  border-bottom: 1px #03d5f7 solid;
+  border-bottom: 1px red solid;
   overflow: hidden; }
   header #heading-btn-cont {
     position: absolute;
@@ -33,16 +33,16 @@ header {
     -o-transition: all ease 0.2s;
     transition: all ease 0.2s; }
     header .gen-btn:hover {
-      color: #CA46CA; }
+      color: red; }
     header .gen-btn:active {
-      color: #e195e1; }
+      color: #ff6666; }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100vw;
   height: 35px;
-  border-top: 1px #03d5f7 solid;
+  border-top: 1px red solid;
   box-sizing: border-box; }
 
 h2 {
@@ -55,7 +55,7 @@ h2 {
 #flex-btn-cont {
   width: 100%;
   height: 45px;
-  border-bottom: 1px #03d5f7 solid;
+  border-bottom: 1px red solid;
   overflow: hidden; }
   #flex-btn-cont .gen-btn {
     float: left;
@@ -67,9 +67,9 @@ h2 {
     -o-transition: all ease 0.2s;
     transition: all ease 0.2s; }
     #flex-btn-cont .gen-btn:hover {
-      color: #CA46CA; }
+      color: red; }
     #flex-btn-cont .gen-btn:active {
-      color: #e195e1; }
+      color: #ff6666; }
 
 .pg-cont {
   margin-bottom: 35px;
@@ -100,7 +100,7 @@ h2 {
     background: white;
     bottom: 30px;
     left: 30px;
-    border: 1px #03d5f7 solid;
+    border: 1px red solid;
     padding: 10px; }
   .profile-cont .splash-header {
     width: inherit;
@@ -129,7 +129,7 @@ h2 {
   margin-right: 20px; }
   .aside-A .cont {
     position: relative;
-    border: 1px #03d5f7 solid;
+    border: 1px red solid;
     width: 230px;
     height: 300px;
     margin-bottom: 20px; }
@@ -176,7 +176,7 @@ h2 {
       height: inherit; }
 
 .article {
-  border: 1px #03d5f7 solid;
+  border: 1px red solid;
   margin-top: 25px;
   position: relative;
   height: 250px;

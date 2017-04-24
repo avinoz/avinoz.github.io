@@ -48,7 +48,7 @@ img{
 
 h1, #pixels{
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	font-size: 6em;
+	font-size: 5em;
 	font-weight:100;
 	font-style:normal;
 	letter-spacing: 1.5px;
@@ -127,8 +127,8 @@ h2{
 
 #archi{
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	font-size: .8em;
-	font-weight:100;
+	font-size: .7em;
+	font-weight:300;
 	font-style:normal;
 	letter-spacing: 1.5px;
 	margin: 120px 0 20px 0;
@@ -245,7 +245,6 @@ h2{
 
 .story{
 	margin: 0 auto;
-	min-width: 980px;
 	overflow: auto;
 	width: 980px;
 }

@@ -5,7 +5,6 @@ avinoz.github.io
 -- spoken by me in 2015
 <br>
 <br>
-<br>
 
 
 
@@ -46,3 +45,6 @@ For work in SVG and D3, please ping me and will show you upon request.
 
 
 Visit my design work in the [physical world](https://www.aviocollective.com/). Visit my design work in the [virtual world](http://avinoz.com)
+<br>
+<br>
+<br>

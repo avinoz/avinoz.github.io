@@ -41,6 +41,7 @@ Here are a few interesting experiments that I created to test the boundaries of 
 For work in SVG and D3, please ping me and will show you upon request.
 <br>
 <br>
+<br>
 
 Visit my design work in the [physical world](https://www.aviocollective.com/). Visit my design work in the [virtual world](http://avinoz.com)
 <br>

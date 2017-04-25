@@ -86,7 +86,9 @@
   }
 
   #archi{
-    display: none;
+    font-size: 3em;
+    font-weight: 200;
+    margin-left: 9.5%;
   }
 
 /* SECOND SECTION */

@@ -16,7 +16,7 @@ p{
 p, ul{
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-size-adjust:0.488;
-	font-weight:100;
+	font-weight: 200;
 	font-style:normal;
 	letter-spacing: 1.5px;
 	line-height: 1.5;
@@ -39,7 +39,6 @@ a:active{
 	color: black;
 	text-decoration: none;
 	font-size: 10px;
-	font-weight: 200;
 }
 
 img{
@@ -128,7 +127,6 @@ h2{
 #archi{
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-size: .7em;
-	font-weight:300;
 	font-style:normal;
 	letter-spacing: 1.5px;
 	margin: 120px 0 20px 0;
@@ -161,18 +159,20 @@ h2{
 	width: 1500px;
 	z-index: 250;
 	margin-top: 100px;
+	pointer-events:none;
 }
 
 #floatphone{
 	transform: scale(0.5,0.5);
 	position: absolute;
 	top: 1150px;
+	pointer-events:none;
 }
 
 .more{
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-size: .8em;
-	font-weight:100;
+	font-weight:200;
 	font-style:normal;
 	letter-spacing: 1.5px;
 	cursor: pointer;

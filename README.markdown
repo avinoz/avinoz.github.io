@@ -23,28 +23,27 @@ You can find [me on paper here](https://github.com/avinoz/avinoz.github.io/blob/
 Here are a few interesting experiments that I created to test the boundaries of UX/UI design using only CSS and JS:
 
 
-[A. Creating the illusion of a responsive 3D spinning ball through JS calculations](https://htmlpreview.github.io/?https://github.com/avinoz/avinoz.github.io/blob/master/experiments/ball/ball.html)
+[A. Creating the illusion of a responsive 3D spinning ball through JS calculations](http://avinoz.github.io/experiments/ball/ball.html)
 
-[B. A means of exploring static data in 3D](https://htmlpreview.github.io/?https://github.com/avinoz/avinoz.github.io/blob/master/experiments/3Dgrid/3Dgrid.html)
+[B. A means of exploring static data in 3D](http://avinoz.github.io/experiments/3Dgrid/3Dgrid.html)
 
-[C. Animating the interface to respond to mouse location](https://htmlpreview.github.io/?https://github.com/avinoz/avinoz.github.io/blob/master/experiments/web-plane/web-plane.html)
+[C. Animating the interface to respond to mouse location](http://avinoz.github.io/experiments/web-plane/web-plane.html)
 
-[D. Dragging and resizing cards](https://htmlpreview.github.io/?https://github.com/avinoz/avinoz.github.io/blob/master/experiments/draggable/draggable.html)
+[D. Dragging and resizing cards](http://avinoz.github.io/experiments/draggable/draggable.html)
 
-[E. Expanding rows of a table for more info](https://htmlpreview.github.io/?https://github.com/avinoz/avinoz.github.io/blob/master/experiments/box-expand/box-expand.html)
+[E. Expanding rows of a table for more info](http://avinoz.github.io/experiments/box-expand/box-expand.html)
 
-[F. Flexbox in for tables](https://htmlpreview.github.io/?https://github.com/avinoz/avinoz.github.io/blob/master/experiments/flex-table/flex-table.html)
+[F. Flexbox in for tables](http://avinoz.github.io/experiments/flex-table/flex-table.html)
 
-[G. My work with Flexbox for TopGirlCoder](https://htmlpreview.github.io/?https://github.com/avinoz/avinoz.github.io/blob/master/experiments/articles/articles.html)
+[G. My work with Flexbox for TopGirlCoder](http://avinoz.github.io/experiments/articles/articles.html)
 
 
 For work in SVG and D3, please ping me and will show you upon request.
 <br>
 <br>
-<br>
-
 
 Visit my design work in the [physical world](https://www.aviocollective.com/). Visit my design work in the [virtual world](http://avinoz.com)
+<br>
 <br>
 <br>
 <br>

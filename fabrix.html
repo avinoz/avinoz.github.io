@@ -13,14 +13,56 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
     <title>Fabrix Health</title>
-    <link rel="stylesheet" href="./css/general.css">
     <link rel="shortcut icon" href="./fabrix.ico" type="image/x-icon" />
-    <script src="js/site.js"></script>
 </head>
 
 
 <style type="text/css">
+
+
+
+/* Mobile */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+  #container {
+    padding-top: 20vh;
+    width: 75% !important;
+    margin: 0 auto;
+   }
+}
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+  #fabrix_logo {
+    float: left;
+    width: 150px !important;
+    margin-top: 10vh !important;
+  }
+  form {
+    float: right;
+    width: 50%;
+  }
+  #container {
+    padding-top: 10vh !important;
+    width: 75% !important;
+    margin: 0 auto;
+   }
+   input {
+     width: 100% !important;
+   }
+}
+
+
+
+  html { margin: 0; padding: 0;}
   body {
+    margin: 0;
+    padding: 0;
     font-family: 'Open Sans', sans-serif;
     background: #fff;
   }
@@ -66,18 +108,12 @@
     margin: 0 auto;
     padding-top: 30vh;
     width: 380px;
-    /*border: 1px red solid;*/
   }
 
   form {
-    /*border: solid 1px #c9c9c9;*/
-    /*width: 700px;*/
     padding-top: 30px;
   }
-  h2 {
-    font-weight: 100;
-    padding-left: 10px;
-  }
+
   input.button {
     background: #19CEA5;
     color: white;
@@ -110,7 +146,7 @@
   <br>
 
   <!-- <label>Name</label> -->
-  <input name="entry.441103942" placeholder="First name" type="text"/>
+  <input name="entry.441103942" placeholder="Name" type="text"/>
   <br>
 
   <!-- <label>Affiliation</label> -->

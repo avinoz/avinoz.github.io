@@ -1,0 +1,65 @@
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// Mixins are used to help me:
+
+// 1) keep Main.css file as concise and consumable as possible by hiding things like webkit
+// 2) modular design allows me to make changes and propagate across the entire app
+// 3) allows me to pass in new values with the same code for small style changes yet...
+// 4) ... allowing me to provide default values in case errors are made in Main.css
+
+// Like CSS, these files are read top to bottom with the lower ones overriding top
+// The file is named begining with an underscore for import purposes esp.
+// this is particularly important when using frameworks such as angular for this file to
+// be pulleld in before Main.css styling
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin ease($value: 0.2s) {
+  -webkit-transition: all ease $value;
+  -moz-transition: all ease $value;
+  -ms-transition: all ease $value;
+  -o-transition: all ease $value;
+  transition: all ease $value;
+}
+
+@mixin drop-shadow($value: 0px 0px 20px 1px #e0e0e0) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin user-select() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin btn($padding: 10px, $color: red) {
+  padding: $padding;
+  cursor: pointer;
+  @include ease();
+  background: $color;
+  &:hover {background: lighten($color, 10%);}
+  &:active {background: lighten($color, 50%);}
+}
+
+// I use this frequently to help me find a particular element when troubleshooting
+@mixin debug($color: red) {
+  border: $color solid 1px;
+  @include box-sizing();
+}

@@ -1,0 +1,178 @@
+
+
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///// Challenge Solution for Arcadia Data /////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+// There are some commented out notes /////////
+// throughout these files to illustrate ///////
+// some of the reasoning behind the solution //
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+
+// importing mixins: please check out file in the CSS folder
+// there are notes there to explain
+@import 'mixins';
+
+
+
+
+///////////////////////////////////////////////
+// VARIABLES
+
+$radius: 3px;
+$color-font-A: #e0e0e0;
+$color-accent: #69b2c0;
+$color-btn: #444;
+$color-bg: #e0e0e0;
+
+$font-A: .8em;
+$font-B: 1em;
+
+$visited: #d1d1d1;
+$graphite: #111;
+
+
+
+
+
+///////////////////////////////////////////////
+// GENERAL STYLE
+
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+}
+
+
+body {
+  font: {
+    family: helvetica;
+    weight: lighter;
+    size: 1em;
+  }
+  line-height: 1.3em;
+  letter-spacing: 1.1px;
+}
+
+
+.flexbox-parent {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start; /* align items in Main Axis */
+  align-items: stretch; /* align items in Cross Axis */
+  align-content: stretch; /* Extra space in Cross Axis */
+
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.header {
+  z-index: 3;
+  flex: 1;
+  background: $graphite;
+  @include drop-shadow(0px 0px 10px 1px $color-accent);
+  #button-cont { /* used to vertically center buttons */
+    height: 100%;
+    display: flex;
+  }
+}
+
+
+
+.simple-btn {
+  display: inline-block;
+  align-self: center;
+
+  @include btn(5px 10px, $color-btn);
+  @include user-select();
+  border-radius: $radius;
+  color:$color-font-A;
+  margin: 0 5px;
+
+  font-size: $font-A;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &:first-child {margin-left: 20px;}
+}
+
+
+.content-area {
+  overflow: scroll;
+  flex: 1 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.menu-bar {
+  height: 100%;
+  background: $color-bg;
+  width: 200px;;
+  float: left;
+ }
+
+
+.menu-bar-bottom {
+  height: auto;
+  background: $color-bg;
+  width: 100%;
+ }
+
+
+
+
+///////////////////////////////////////////////
+// SPRITE ICONS & ASSETS
+
+// I just stole a sprite file from the internet
+// unfortunately the icon sizing was some odd number & not centered
+// I had to reposition it in photoshop and use background-size
+// to scale the image for an icon size of 40px
+
+.icon {
+  display: inline-block;
+  margin: 3px;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  background-image: url(../assets/sprite.png);
+  background-size: 600px;
+  background-repeat: no-repeat;
+  &.alarm { background-position: -120px -80px;}
+  &.download { background-position: -40px -160px;}
+  &.file { background-position: -160px -40px;}
+}
+
+#logo {
+  float: left;
+  display: inline-block;
+  width: 180px;
+  margin: 5px 10px;
+}
+
+#bg-cont {
+  z-index: -1;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+
+#bg-cont img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}

@@ -25,6 +25,7 @@ p, ul{
 a{
 	text-decoration: none;
 	color: black;
+	cursor: pointer;
 }
 
 a:hover{
@@ -124,12 +125,12 @@ h2{
 	padding: 0;
 }
 
-#archi{
+#archi, .downloads{
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-size: .7em;
 	font-style:normal;
 	letter-spacing: 1.5px;
-	margin: 120px 0 20px 0;
+	line-height: 25px;
 }
 
 /* SECOND SECTION */

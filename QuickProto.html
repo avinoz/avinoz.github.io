@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Few Days</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Rubik Scribble' rel='stylesheet'>
+    <style>
+        html,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: Roboto, sans-serif;
+        }
+
+        html {
+            background: rgb(34, 193, 195);
+            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+            height: 100vh;
+            width: 100vw;
+        }
+
+        body {
+            padding: 20px 30px;
+        }
+
+        h1 {
+            margin: 0.5em 0;
+            font-family: Rubik Scribble;
+            font-size: 5em;
+            color: #35874f;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 2px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-cont">
+        <h1>Next Few Days</h1>
+
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Link</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table content will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+
+        var eventData = {
+            "eventsResults": [
+                {
+                    "position": 1,
+                    "title": "Lil Yachty",
+                    "date": {
+                        "startDate": "22 Sep",
+                        "when": "Fri, Sep 22, 7 – 11 PM"
+                    },
+                    "address": [
+                        "SummerStage in Central Park, 5th Ave",
+                        "New York, NY"
+                    ],
+                    "link": "https://open.spotify.com/concert/5NXHIC1E2GZQ9sFK9zhEAM",
+                    "description": "Find tickets for Lil Yachty with Nick Hakim at Capital One City Parks Foundation SummerStage in New York on 9/22/2023 at 7:00 PM",
+                    "venue": {
+                        "name": "SummerStage in Central Park",
+                        "reviews": 1390,
+                        "link": "https://www.google.com/search?sca_esv=566579981&q=SummerStage+in+Central+Park&ludocid=6446317980024795074&ibp=gwp%3B0,7"
+                    },
+                    "ticketInfo": [
+                        {
+                            "source": "Bandsintown.com",
+                            "link": "https://www.bandsintown.com/t/104413231?came_from=209",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Axs.com",
+                            "link": "https://www.axs.com/au/events/485194/lil-yachty-tickets",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Ticketsmarter.com",
+                            "link": "https://www.ticketsmarter.com/e/lil-yachty-tickets-new-york-9-22-2023-city-parks-foundation-summerstage/5704492",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Ticketmaster.com",
+                            "link": "https://ticketmaster.evyy.net/c/252938/264167/4272?u=https%3A%2F%2Fwww.ticketmaster.com%2Flil-yachty-the-field-trip-tour-new-york-new-york-09-22-2023%2Fevent%2F00005EA5E8C09370",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Spotify",
+                            "link": "https://open.spotify.com/concert/5NXHIC1E2GZQ9sFK9zhEAM",
+                            "linkType": "more info"
+                        }
+                    ],
+                    "eventLocationMap": {
+                        "image": "https://www.google.com/maps/vt/data=_YqFdWtONSSiKvf2UyZf38LCMEThYLa7N7l-2513ZJbCnCPQ3EhAGSl85CnoBaoz4kVHtmDKxVsnd9dSKo8wMWtOtj5uhDysJgntkeTL4YMjMgwp5rs",
+                        "link": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x89c258ed4eea78db:0x5975ec0c7c976fc2?sa=X&ved=2ahUKEwiK7ozsy7aBAxVnMVkFHapbAd0Q9eIBegQIARAA"
+                    }
+                },
+                {
+                    "position": 2,
+                    "title": "The Music of Earth, Wind, & Fire: 21st NIGHT OF...",
+                    "date": {
+                        "startDate": "21 Sep",
+                        "when": "Thu, Sep 21, 7:00 – 8:15 PM"
+                    },
+                    "address": [
+                        "Cafe Wha?, 115 MacDougal St",
+                        "New York, NY"
+                    ],
+                    "link": "https://donyc.com/events/2023/9/21/the-music-of-earth-wind-fire-21st-night-of-september-tickets",
+                    "description": "The Music of Earth, Wind, & Fire | 6:00 p doors, 7:00 p show | 2 item minimum $15 advance, $20 day of show | Doors: 6:00 pm, show 7:00 pm D o you remember? The 21st night of September? You...",
+                    "venue": {
+                        "name": "Cafe Wha?",
+                        "reviews": 1706,
+                        "link": "https://www.google.com/search?sca_esv=566579981&q=Cafe+Wha%3F&ludocid=9736536598616455486&ibp=gwp%3B0,7"
+                    },
+                    "ticketInfo": [
+                        {
+                            "source": "Eventbrite.com",
+                            "link": "https://www.eventbrite.com/e/the-music-of-earth-wind-fire-21st-night-of-september-tickets-604057872357",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Allevents.in",
+                            "link": "https://allevents.in/new%20york/the-music-of-earth-wind-and-fire-21st-night-of-september/10000604057872357",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "doNYC",
+                            "link": "https://donyc.com/events/2023/9/21/the-music-of-earth-wind-fire-21st-night-of-september-tickets",
+                            "linkType": "more info"
+                        },
+                        {
+                            "source": "Brooklyn Vegan NYC Shows",
+                            "link": "http://nyc-shows.brooklynvegan.com/events/2023/9/21/the-music-of-earth-wind-fire-21st-night-of-september-tickets",
+                            "linkType": "more info"
+                        },
+                        {
+                            "source": "Night-NYC",
+                            "link": "https://night-nyc.com/live-music/the-music-of-earth-wind-fire-21st-night-of-september-21-september-new-york",
+                            "linkType": "more info"
+                        }
+                    ],
+                    "eventLocationMap": {
+                        "image": "https://www.google.com/maps/vt/data=L1VI4lWesVz7T1u41bT_jWyjO-WAOacIjssEG6an1uLP4yu462rCk18_m1WD3DeKhBRsFtMFFx9-42CslnvlLF28hQlYtAkzJ00beOE-Szy3K_AS9nk",
+                        "link": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x89c259922a0f1d41:0x871f2073371fb93e?sa=X&ved=2ahUKEwiK7ozsy7aBAxVnMVkFHapbAd0Q9eIBegQICRAA"
+                    }
+                },
+                {
+                    "position": 10,
+                    "title": "Macklemore: The BEN Tour",
+                    "date": {
+                        "startDate": "22 Sep",
+                        "when": "Fri, Sep 22, 7:30 – 11:30 PM"
+                    },
+                    "address": [
+                        "The Rooftop at Pier 17, 89 South St Pier 17",
+                        "New York, NY"
+                    ],
+                    "link": "https://clubquartershotels.com/events/macklemore-3f7ad6ee-80b2-53bb-b5b5-3080ec5d6017",
+                    "description": "Macklemore is an American rapper, singer, songwriter, and record producer from Seattle, Washington. He first gained recognition in 2005 after the release of his debut album, The Language of My...",
+                    "venue": {
+                        "name": "The Rooftop at Pier 17",
+                        "reviews": 128,
+                        "link": "https://www.google.com/search?sca_esv=566579981&q=The+Rooftop+at+Pier+17&ludocid=13800587555646796196&ibp=gwp%3B0,7"
+                    },
+                    "ticketInfo": [
+                        {
+                            "source": "Ticketmaster.com",
+                            "link": "https://ticketmaster.evyy.net/c/253185/264167/4272?u=https%3A%2F%2Fwww.ticketmaster.com%2Fmacklemore-the-ben-tour-new-york-new-york-09-22-2023%2Fevent%2F1D005E61CB4330BB",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Ticketmaster.com",
+                            "link": "https://www.ticketmaster.com/macklemore-the-ben-tour-new-york-new-york-09-22-2023/event/1D005E61CB4330BB",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Bandsintown.com",
+                            "link": "https://www.bandsintown.com/t/104208478?came_from=209",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Vividseats.com",
+                            "link": "https://www.vividseats.com/macklemore-tickets-new-york-the-rooftop-at-pier-17-9-22-2023--concerts-rap-hip-hop/production/4328999?utm_medium=organic&utm_source=google_eventsearch",
+                            "linkType": "tickets"
+                        },
+                        {
+                            "source": "Club Quarters Hotels",
+                            "link": "https://clubquartershotels.com/events/macklemore-3f7ad6ee-80b2-53bb-b5b5-3080ec5d6017",
+                            "linkType": "more info"
+                        }
+                    ],
+                    "eventLocationMap": {
+                        "image": "https://www.google.com/maps/vt/data=7qi44EoROnW26qBgP0r2YbLTvytbgyIV7tk8-IzGM8VtMG8WPfg8bCn86GV-8QKyKRhyP9zQE7sQJ4nC09ZVvlIA__4GDazerGKgDzlyi229_j5VRG0",
+                        "link": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x89c25bb82deb08e9:0xbf8589436200f1a4?sa=X&ved=2ahUKEwiK7ozsy7aBAxVnMVkFHapbAd0Q9eIBegQISRAA"
+                    }
+                }
+            ]
+        };
+
+        // Loop through the eventsResults and append rows to the table
+        eventData.eventsResults.forEach(function (event) {
+            var row = '<tr>' +
+                '<td>' + event.position + '</td>' +
+                '<td>' + event.title + '</td>' +
+                '<td>' + event.date.when + '</td>' +
+                '<td>' + event.address.join('<br>') + '</td>' +
+                '<td><a href="' + event.link + '" target="_blank">Link</a></td>' +
+                '<td>' + event.description + '</td>' +
+                '</tr>';
+            document.getElementById('data-table').getElementsByTagName('tbody')[0].insertAdjacentHTML('beforeend', row);
+        });
+
+
+    </script>
+
+</body>
+
+</html>

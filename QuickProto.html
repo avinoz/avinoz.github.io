@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Next Few Days</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Rubik Scribble' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Gloria Hallelujah' rel='stylesheet'>
     <style>
         html,
         button,
@@ -28,8 +28,8 @@
         }
 
         h1 {
-            margin: 0.5em 0;
-            font-family: Rubik Scribble;
+            margin: 0.3em 0 0 0;
+            font-family: Gloria Hallelujah;
             font-size: 5em;
             color: #35874f;
         }
@@ -41,15 +41,44 @@
             font-size: 14px;
         }
 
+        a {
+            font-family: Gloria Hallelujah;
+            text-decoration: none;
+            font-weight: 500;
+            color: #145328;
+            font-size: 20px;
+        }
+
+        a:visited {
+            color: #35874f;
+        }
+
+        a:active,
+        a:hover {
+            outline: 0;
+            color: #41a761;
+        }
+
+        a:active {
+            color: rgba(253, 187, 45, 1);
+        }
+
+
+
         th,
         td {
-            border: 1px solid #ddd;
+            border: none;
+            border-bottom: .5px solid #35874f;
             padding: 2px;
             text-align: left;
+            vertical-align: top;
         }
 
         th {
-            background-color: #f2f2f2;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 12px;
+            color: #35874f;
         }
     </style>
 </head>
@@ -61,11 +90,9 @@
         <table id="data-table">
             <thead>
                 <tr>
-                    <th>Position</th>
                     <th>Title</th>
                     <th>Date</th>
                     <th>Address</th>
-                    <th>Link</th>
                     <th>Description</th>
                 </tr>
             </thead>
@@ -75,13 +102,46 @@
         </table>
     </div>
 
+
+    // USING API
     <script>
+        $(document).ready(function () {
+            var apiKey = 'e7fc926d-d36e-47a0-853f-c58c958fe819';
+            var apiEndpoint = 'https://api.scrape-it.cloud/scrape/google/events?q=Events in Berkeley';
+
+            $.ajax({
+                url: apiEndpoint,
+                type: 'GET',
+                headers: {
+                    'x-api-key': apiKey
+                },
+                success: function (data) {
+                    // Loop through the eventsResults and append rows to the table
+                    $.each(data.eventsResults, function (index, event) {
+                        var row = '<tr>' +
+                            '<td>' + event.position + '</td>' +
+                            '<td>' + event.title + '</td>' +
+                            '<td>' + event.date.when + '</td>' +
+                            '<td>' + event.address.join('<br>') + '</td>' +
+                            '<td><a href="' + event.link + '" target="_blank">Link</a></td>' +
+                            '<td>' + event.description + '</td>' +
+                            '</tr>';
+                        $('#data-table tbody').append(row);
+                    });
+                },
+                error: function (error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+    </script>
 
 
+    // MOCK DATA SCRIPT
+    <!-- <script>
         var eventData = {
             "eventsResults": [
                 {
-                    "position": 1,
                     "title": "Lil Yachty",
                     "date": {
                         "startDate": "22 Sep",
@@ -131,7 +191,6 @@
                     }
                 },
                 {
-                    "position": 2,
                     "title": "The Music of Earth, Wind, & Fire: 21st NIGHT OF...",
                     "date": {
                         "startDate": "21 Sep",
@@ -181,7 +240,6 @@
                     }
                 },
                 {
-                    "position": 10,
                     "title": "Macklemore: The BEN Tour",
                     "date": {
                         "startDate": "22 Sep",
@@ -236,18 +294,15 @@
         // Loop through the eventsResults and append rows to the table
         eventData.eventsResults.forEach(function (event) {
             var row = '<tr>' +
-                '<td>' + event.position + '</td>' +
-                '<td>' + event.title + '</td>' +
+                '<td><a href="' + event.link + '" target="_blank">' + event.title + '</a></td>' +
                 '<td>' + event.date.when + '</td>' +
                 '<td>' + event.address.join('<br>') + '</td>' +
-                '<td><a href="' + event.link + '" target="_blank">Link</a></td>' +
                 '<td>' + event.description + '</td>' +
                 '</tr>';
             document.getElementById('data-table').getElementsByTagName('tbody')[0].insertAdjacentHTML('beforeend', row);
         });
 
-
-    </script>
+    </script> -->
 
 </body>
 

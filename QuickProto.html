@@ -21,10 +21,12 @@
             background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
             height: 100vh;
             width: 100vw;
+            overflow: hidden;
         }
 
         body {
             padding: 20px 30px;
+            overflow: scroll;
         }
 
         h1 {
@@ -103,7 +105,7 @@
     </div>
 
 
-    // USING API
+    <!-- USING API -->
     <script>
         $(document).ready(function () {
             var apiKey = 'e7fc926d-d36e-47a0-853f-c58c958fe819';
@@ -119,11 +121,9 @@
                     // Loop through the eventsResults and append rows to the table
                     $.each(data.eventsResults, function (index, event) {
                         var row = '<tr>' +
-                            '<td>' + event.position + '</td>' +
-                            '<td>' + event.title + '</td>' +
+                            '<td><a href="' + event.link + '" target="_blank">' + event.title + '</a></td>' +
                             '<td>' + event.date.when + '</td>' +
                             '<td>' + event.address.join('<br>') + '</td>' +
-                            '<td><a href="' + event.link + '" target="_blank">Link</a></td>' +
                             '<td>' + event.description + '</td>' +
                             '</tr>';
                         $('#data-table tbody').append(row);
@@ -137,7 +137,7 @@
     </script>
 
 
-    // MOCK DATA SCRIPT
+    <!-- MOCK DATA SCRIPT -->
     <!-- <script>
         var eventData = {
             "eventsResults": [

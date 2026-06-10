@@ -248,8 +248,8 @@
   function initHeader() {
     const header = document.getElementById('site-header');
     ScrollTrigger.create({
-      start: 80,
-      onUpdate: (self) => header.classList.toggle('scrolled', self.scroll() > 80),
+      start: 60,
+      onUpdate: (self) => header.classList.toggle('scrolled', self.scroll() > 60),
     });
 
     const toggle = document.getElementById('menu-toggle');

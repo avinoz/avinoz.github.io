@@ -202,21 +202,27 @@
       setRevealMask(reveal.scale, origin);
     };
 
+    const letterDelay = 0.35;
+    const letterStagger = 0.04;
+    const letterDur = 0.65;
+    const vIndex = animLetters.findIndex((el) => el.dataset.letter === 'v');
+    const iStemStart = letterDelay + vIndex * letterStagger + 0.2;
+
     gsap.timeline({ onComplete: finishIntro })
-      .to({}, { duration: 0.35 })
+      .to({}, { duration: letterDelay })
       .to(animLetters, {
         y: 0,
         opacity: 1,
-        duration: 0.65,
+        duration: letterDur,
         ease: 'power3.out',
-        stagger: 0.04,
+        stagger: letterStagger,
       })
       .to(iStem, {
         y: 0,
         opacity: 1,
-        duration: 0.65,
+        duration: 0.5,
         ease: 'power3.out',
-      }, '-=0.2')
+      }, iStemStart)
       .to({}, { duration: 0.5 })
       .to(reveal, {
         scale: origin.coverScale,
@@ -248,8 +254,8 @@
   function initHeader() {
     const header = document.getElementById('site-header');
     ScrollTrigger.create({
-      start: 60,
-      onUpdate: (self) => header.classList.toggle('scrolled', self.scroll() > 60),
+      start: 0,
+      onUpdate: (self) => header.classList.toggle('scrolled', self.scroll() > 0),
     });
 
     const toggle = document.getElementById('menu-toggle');
@@ -380,8 +386,8 @@
 
     ScrollTrigger.create({
       trigger: '#projects',
-      start: 'top 80%',
-      end: 'bottom 20%',
+      start: 'top 35%',
+      end: 'bottom 75%',
       onEnter: () => { preview.classList.add('visible'); projectsVisible = true; },
       onLeave: () => { preview.classList.remove('visible'); projectsVisible = false; },
       onEnterBack: () => { preview.classList.add('visible'); projectsVisible = true; },
@@ -462,7 +468,7 @@
         }
       });
 
-      if (closestIdx >= 0 && closestDist < window.innerHeight * 0.45) {
+      if (closestIdx >= 0 && closestDist < window.innerHeight * 0.24) {
         activateProject(closestIdx);
       } else {
         deactivateAll();
@@ -570,31 +576,58 @@
     });
   }
 
-  /* ── Stack pills ── */
+  /* ── Stack manifesto scroll ── */
   function initStack() {
-    const pills = document.querySelectorAll('.stack-pill');
+    const categories = [
+      { id: 'design', label: 'Design' },
+      { id: 'frontend', label: 'Frontend' },
+      { id: 'motion', label: 'Motion' },
+      { id: 'mobile', label: 'Mobile' },
+      { id: 'backend', label: 'Backend' },
+      { id: 'ai', label: 'AI' },
+    ];
+    const catEl = document.getElementById('stack-cat');
+    const words = document.querySelectorAll('.s-word');
+    const tags = document.querySelectorAll('.stack-tag');
+    if (!catEl || !words.length) return;
+
+    let activeIdx = -1;
+
+    function setCategory(idx) {
+      if (idx === activeIdx) return;
+      activeIdx = idx;
+      const { id, label } = categories[idx];
+      catEl.textContent = label;
+      words.forEach((w) => w.classList.toggle('active', w.dataset.cat === id));
+      tags.forEach((t) => {
+        const match = t.dataset.cat === id;
+        t.classList.toggle('active', match);
+        t.classList.toggle('dimmed', !match);
+      });
+    }
+
     ScrollTrigger.create({
-      trigger: '#stack-cloud',
-      start: 'top 80%',
-      once: true,
-      onEnter() {
-        pills.forEach((p, i) => {
-          setTimeout(() => p.classList.add('visible'), i * 40);
-        });
+      trigger: '#stack',
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: '#stack-pin',
+    });
+
+    ScrollTrigger.create({
+      trigger: '#stack',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.4,
+      onUpdate(self) {
+        const idx = Math.min(
+          categories.length - 1,
+          Math.floor(self.progress * categories.length)
+        );
+        setCategory(idx);
       },
     });
 
-    document.querySelectorAll('.stack-filter').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.stack-filter').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        pills.forEach((p) => {
-          const match = filter === 'all' || p.dataset.cat === filter;
-          p.classList.toggle('dimmed', !match);
-        });
-      });
-    });
+    setCategory(0);
   }
 
   /* ── Contact ── */

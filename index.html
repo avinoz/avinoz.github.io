@@ -39,26 +39,25 @@
   </div>
 
   <header class="site-header" id="site-header">
-    <div class="site-header-inner">
-      <a class="logo" href="#">Alvin<span class="logo-dot">.</span></a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#studio">About</a>
-        <a href="#apps">Apps</a>
-        <a href="#contact" class="nav-cta">Let's talk</a>
-      </nav>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-    </div>
+    <a class="logo" href="#">Alvin<span class="logo-dot">.</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#studio">About</a>
+      <a href="#stack">Skills</a>
+      <a href="#apps">Apps</a>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
   </header>
 
   <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
     <nav aria-label="Mobile">
       <a href="#work">Work</a>
       <a href="#studio">About</a>
+      <a href="#stack">Skills</a>
       <a href="#apps">Apps</a>
-      <a href="#stack">Stack</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -68,17 +67,14 @@
       <canvas class="hero-canvas" id="hero-canvas"></canvas>
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="hero-eyebrow" id="hero-eyebrow">UX Designer · Prompt Engineer · San Francisco</p>
+        <p class="hero-eyebrow" id="hero-eyebrow">UX Designer · Prompt Engineer · San Francisco Bay Area</p>
         <h1 class="hero-title" id="hero-title">
-          <span class="hero-line">Design</span>
-          <span class="hero-line hero-line--accent">it.</span>
-          <span class="hero-line">Ship</span>
-          <span class="hero-line">it.</span>
+          <div class="hero-line">Design <span class="hero-line--accent">it.</span></div>
+          <div class="hero-line">Ship <span class="hero-line--accent">it.</span></div>
         </h1>
         <p class="hero-desc" id="hero-desc">
-          Seasoned UX designer with a real engineering background — production HTML, SCSS, React, and Swift
-          long before AI assistants. I've designed in highly technical fields; today I pair that depth
-          with prompt engineering to ship faster without losing precision.
+          A decade of experience designing technical applications — with real skills in HTML, SCSS, React, Vue etc. 
+          Now accelerated by AI. Faster builds, happier customers .
         </p>
         <div class="hero-scroll-hint" id="hero-scroll-hint">
           <span>Scroll</span>
@@ -231,39 +227,68 @@
     </section>
 
     <section class="stack" id="stack">
-      <div class="stack-inner">
-        <span class="section-tag">Toolkit</span>
-        <h2 class="section-title">Design & build</h2>
-        <div class="stack-cloud" id="stack-cloud">
-          <span class="stack-pill" data-cat="design">Figma</span>
-          <span class="stack-pill" data-cat="design">Sketch</span>
-          <span class="stack-pill" data-cat="design">Adobe CC</span>
-          <span class="stack-pill" data-cat="design">Prototyping</span>
-          <span class="stack-pill" data-cat="frontend">HTML & CSS</span>
-          <span class="stack-pill" data-cat="frontend">SCSS</span>
-          <span class="stack-pill" data-cat="frontend">JavaScript</span>
-          <span class="stack-pill" data-cat="frontend">TypeScript</span>
-          <span class="stack-pill" data-cat="frontend">React</span>
-          <span class="stack-pill" data-cat="motion">GSAP</span>
-          <span class="stack-pill" data-cat="motion">Lenis</span>
-          <span class="stack-pill" data-cat="motion">D3</span>
-          <span class="stack-pill" data-cat="mobile">Swift</span>
-          <span class="stack-pill" data-cat="mobile">iOS</span>
-          <span class="stack-pill" data-cat="mobile">Xcode</span>
-          <span class="stack-pill" data-cat="backend">Node.js</span>
-          <span class="stack-pill" data-cat="backend">Ruby</span>
-          <span class="stack-pill" data-cat="ai">Prompt engineering</span>
-          <span class="stack-pill" data-cat="ai">Cursor</span>
-          <span class="stack-pill" data-cat="ai">Claude</span>
+      <div class="stack-pin" id="stack-pin">
+        <div class="stack-scatter" id="stack-scatter" aria-hidden="true">
+          <span class="stack-tag" data-cat="design" style="--x:5%; --y:12%; --r:-14deg">Figma</span>
+          <span class="stack-tag" data-cat="design" style="--x:82%; --y:10%; --r:10deg">Sketch</span>
+          <span class="stack-tag" data-cat="design" style="--x:14%; --y:78%; --r:-6deg">Adobe CC</span>
+          <span class="stack-tag" data-cat="design" style="--x:88%; --y:70%; --r:5deg">Prototyping</span>
+          <span class="stack-tag" data-cat="frontend" style="--x:7%; --y:40%; --r:-8deg">HTML &amp; CSS</span>
+          <span class="stack-tag" data-cat="frontend" style="--x:74%; --y:36%; --r:12deg">SCSS</span>
+          <span class="stack-tag" data-cat="frontend" style="--x:28%; --y:26%; --r:6deg">JavaScript</span>
+          <span class="stack-tag" data-cat="frontend" style="--x:66%; --y:20%; --r:-10deg">TypeScript</span>
+          <span class="stack-tag" data-cat="frontend" style="--x:92%; --y:46%; --r:8deg">React</span>
+          <span class="stack-tag" data-cat="motion" style="--x:4%; --y:56%; --r:-5deg">GSAP</span>
+          <span class="stack-tag" data-cat="motion" style="--x:36%; --y:86%; --r:4deg">D3</span>
+          <span class="stack-tag" data-cat="mobile" style="--x:46%; --y:14%; --r:-4deg">Swift</span>
+          <span class="stack-tag" data-cat="mobile" style="--x:10%; --y:26%; --r:9deg">iOS</span>
+          <span class="stack-tag" data-cat="mobile" style="--x:84%; --y:56%; --r:-11deg">Xcode</span>
+          <span class="stack-tag" data-cat="backend" style="--x:3%; --y:84%; --r:7deg">Node.js</span>
+          <span class="stack-tag" data-cat="backend" style="--x:70%; --y:80%; --r:-7deg">Ruby</span>
+          <span class="stack-tag" data-cat="ai" style="--x:93%; --y:24%; --r:3deg">Prompt engineering</span>
+          <span class="stack-tag" data-cat="ai" style="--x:94%; --y:88%; --r:-9deg">Cursor</span>
+          <span class="stack-tag" data-cat="ai" style="--x:16%; --y:50%; --r:11deg">Claude</span>
         </div>
-        <div class="stack-filters" id="stack-filters">
-          <button class="stack-filter active" data-filter="all">All</button>
-          <button class="stack-filter" data-filter="design">Design</button>
-          <button class="stack-filter" data-filter="frontend">Frontend</button>
-          <button class="stack-filter" data-filter="motion">Motion</button>
-          <button class="stack-filter" data-filter="mobile">Mobile</button>
-          <button class="stack-filter" data-filter="backend">Backend</button>
-          <button class="stack-filter" data-filter="ai">AI</button>
+        <div class="stack-focus">
+          <span class="section-tag">Toolkit</span>
+          <h2 class="stack-title" id="stack-title" aria-live="polite">
+            <span class="stack-cat" id="stack-cat">Design</span>
+          </h2>
+          <p class="stack-copy" id="stack-copy">
+          I shape
+          <span class="s-word" data-cat="design">visual systems</span>
+          in
+          <span class="s-word" data-cat="design">Figma</span>
+          and
+          <span class="s-word" data-cat="design">Sketch</span>,
+          refine flows through
+          <span class="s-word" data-cat="design">prototyping</span>,
+          ship
+          <span class="s-word" data-cat="frontend">HTML</span>,
+          <span class="s-word" data-cat="frontend">SCSS</span>,
+          and
+          <span class="s-word" data-cat="frontend">React</span>
+          interfaces,
+          choreograph
+          <span class="s-word" data-cat="motion">scroll</span>
+          and
+          <span class="s-word" data-cat="motion">animation</span>
+          with
+          <span class="s-word" data-cat="motion">GSAP</span>,
+          build native
+          <span class="s-word" data-cat="mobile">iOS</span>
+          apps in
+          <span class="s-word" data-cat="mobile">Swift</span>,
+          wire
+          <span class="s-word" data-cat="backend">Node.js</span>
+          and
+          <span class="s-word" data-cat="backend">Ruby</span>
+          services, and extend the workflow with
+          <span class="s-word" data-cat="ai">prompt engineering</span>,
+          <span class="s-word" data-cat="ai">Cursor</span>,
+          and
+          <span class="s-word" data-cat="ai">Claude</span>.
+        </p>
         </div>
       </div>
     </section>
@@ -297,7 +322,7 @@
       <div class="contact-inner">
         <span class="section-tag">Contact</span>
         <h2 class="contact-title" id="contact-title">Let's build<br>something.</h2>
-        <p class="contact-body">Need a seasoned UX designer who actually understands technical products — and can ship with prompt engineering backed by real code? Product design, design engineering, or full build — let's talk.</p>
+        <p class="contact-body">Need a seasoned UX designer who finds joy solving complex workflows — and can expedite developement? Product design, marketing, engineering, or full build — let's talk.</p>
         <a class="contact-email magnetic" id="contact-email" href="https://www.linkedin.com/in/avinoz/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
         <div class="contact-links">
           <a href="https://github.com/avinoz" target="_blank" rel="noopener noreferrer">GitHub</a>

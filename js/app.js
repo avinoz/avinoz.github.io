@@ -319,13 +319,190 @@
       lenis.stop();
       if (!open) lenis.start();
     });
-    drawer?.querySelectorAll('a').forEach((a) => {
+    drawer?.querySelectorAll('a:not([data-open-contact]):not([data-open-portfolio])').forEach((a) => {
       a.addEventListener('click', () => {
         drawer.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
         lenis.start();
       });
     });
+  }
+
+  /* ── Contact modal ── */
+  function initContactModal() {
+    const modal = document.getElementById('contact-modal');
+    const dialog = document.getElementById('contact-modal-dialog');
+    const backdrop = document.getElementById('contact-modal-backdrop');
+    const closeBtn = document.getElementById('contact-modal-close');
+    const form = document.getElementById('contact-form');
+    const toggle = document.getElementById('menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const CONTACT_EMAIL = 'avinoz@gmail.com';
+    let lastFocus = null;
+
+    if (!modal || !form) return;
+
+    function openModal() {
+      lastFocus = document.activeElement;
+      drawer?.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      drawer?.setAttribute('aria-hidden', 'true');
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      lenis.stop();
+      requestAnimationFrame(() => {
+        document.getElementById('contact-name')?.focus();
+      });
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      lenis.start();
+      if (lastFocus && typeof lastFocus.focus === 'function') {
+        lastFocus.focus();
+      }
+    }
+
+    document.querySelectorAll('[data-open-contact]').forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop?.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const message = form.message.value.trim();
+      if (!name || !message) {
+        form.reportValidity();
+        return;
+      }
+
+      const subject = `Portfolio inquiry from ${name}`;
+      const body = `${message}\n\n— ${name}`;
+      const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      closeModal();
+      form.reset();
+    });
+
+    dialog?.addEventListener('click', (e) => e.stopPropagation());
+  }
+
+  /* ── Portfolio download modal ── */
+  function initPortfolioModal() {
+    const modal = document.getElementById('portfolio-modal');
+    const dialog = document.getElementById('portfolio-modal-dialog');
+    const backdrop = document.getElementById('portfolio-modal-backdrop');
+    const closeBtn = document.getElementById('portfolio-modal-close');
+    const form = document.getElementById('portfolio-form');
+    const passwordInput = document.getElementById('portfolio-password');
+    const errorEl = document.getElementById('portfolio-error');
+    const requestBtn = document.getElementById('portfolio-request-access');
+    const toggle = document.getElementById('menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const CONTACT_EMAIL = 'avinoz@gmail.com';
+    const PORTFOLIO_PDF = 'assets/Alvin-Shiu-Portfolio.pdf';
+    // Change this to your portfolio download password
+    const PORTFOLIO_PASSWORD = 'rain2026';
+    let lastFocus = null;
+
+    if (!modal || !form) return;
+
+    function requestAccess() {
+      const subject = 'Portfolio access request';
+      const body =
+        'Hi Alvin,\n\n' +
+        "I'd like to request access to download your portfolio PDF. Please share the password when you have a moment.\n\n" +
+        'Thank you!';
+      window.location.href =
+        `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    function downloadPortfolio() {
+      const link = document.createElement('a');
+      link.href = PORTFOLIO_PDF;
+      link.download = 'Alvin-Shiu-Portfolio.pdf';
+      link.rel = 'noopener';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    function openModal() {
+      lastFocus = document.activeElement;
+      drawer?.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      drawer?.setAttribute('aria-hidden', 'true');
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      if (errorEl) errorEl.hidden = true;
+      form.reset();
+      lenis.stop();
+      requestAnimationFrame(() => passwordInput?.focus());
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      lenis.start();
+      if (lastFocus && typeof lastFocus.focus === 'function') {
+        lastFocus.focus();
+      }
+    }
+
+    document.querySelectorAll('[data-open-portfolio]').forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop?.addEventListener('click', closeModal);
+    requestBtn?.addEventListener('click', requestAccess);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = form.password.value;
+      if (!password) {
+        form.reportValidity();
+        return;
+      }
+      if (password !== PORTFOLIO_PASSWORD) {
+        if (errorEl) errorEl.hidden = false;
+        passwordInput?.focus();
+        return;
+      }
+      if (errorEl) errorEl.hidden = true;
+      downloadPortfolio();
+      closeModal();
+      form.reset();
+    });
+
+    dialog?.addEventListener('click', (e) => e.stopPropagation());
   }
 
   /* ── Hero entrance ── */
@@ -783,6 +960,8 @@
     initProcess();
     initStack();
     initContact();
+    initContactModal();
+    initPortfolioModal();
     initFooter();
     ScrollTrigger.refresh();
   }

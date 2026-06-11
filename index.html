@@ -45,7 +45,10 @@
       <a href="#studio">About</a>
       <a href="#stack">Skills</a>
       <a href="#apps">Apps</a>
-      <a href="#contact" class="nav-cta">Let's talk</a>
+      <div class="nav-actions">
+        <a href="#" class="nav-cta nav-cta--outline" data-open-portfolio>Portfolio</a>
+        <a href="#" class="nav-cta" data-open-contact>Let's talk</a>
+      </div>
     </nav>
     <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span>
@@ -58,7 +61,8 @@
       <a href="#studio">About</a>
       <a href="#stack">Skills</a>
       <a href="#apps">Apps</a>
-      <a href="#contact">Contact</a>
+      <a href="#" data-open-portfolio>Portfolio</a>
+      <a href="#" data-open-contact>Let's talk</a>
     </nav>
   </div>
 
@@ -153,8 +157,8 @@
         </svg>
         <div class="projects-inner">
           <div class="projects-list" id="projects-list">
-            <div class="proj-item active" data-id="sidetable" data-url="https://sidetablecoffee.com/index.html" data-img="assets/images/projects/sidetable.svg" data-date="2026" data-desc="South Berkeley coffee &amp; tea — brand identity, marketing site, and Square-integrated email capture for pre-opening updates.">Side Table</div>
-            <div class="proj-item" data-id="ashlarlane" data-url="https://www.ashlarlane.com/index.html#sell" data-img="assets/images/projects/ashlarlane.svg" data-date="2026" data-desc="Bay Area real estate brokerage — branding, marketing site, and buyer/seller match flows for a California-local team.">Ashlar Lane</div>
+            <div class="proj-item active" data-id="sidetable" data-url="https://sidetablecoffee.com/index.html" data-img="assets/images/projects/sidetable.png" data-date="2026" data-desc="South Berkeley coffee &amp; tea — brand identity, marketing site, and Square-integrated email capture for pre-opening updates.">Side Table</div>
+            <div class="proj-item" data-id="ashlarlane" data-url="https://www.ashlarlane.com/index.html#sell" data-img="assets/images/projects/ashlarlane.png" data-date="2026" data-desc="Bay Area real estate brokerage — branding, marketing site, and buyer/seller match flows for a California-local team.">Ashlar Lane</div>
             <div class="proj-item" data-id="nebulon" data-url="" data-img="assets/images/projects/nebulon.svg" data-date="2019 — 2022" data-desc="Enterprise cloud UI from zero — modular design system, custom icon font.">Nebulon</div>
             <div class="proj-item" data-id="kilo" data-url="" data-img="assets/images/projects/kilo.svg" data-date="2022 — 2025" data-desc="Gym management SaaS — product design with eng on architecture and data models.">Kilo</div>
             <div class="proj-item" data-id="expanse" data-url="" data-img="assets/images/projects/expanse.svg" data-date="2016 — 2018" data-desc="Founding designer at Qadium — enterprise security UI and corporate site.">Expanse</div>
@@ -169,7 +173,7 @@
             <span class="proj-label" id="proj-label">Designed & built</span>
           </div>
           <p class="proj-desc" id="proj-desc">South Berkeley coffee &amp; tea — brand identity, marketing site, and Square-integrated email capture for pre-opening updates.</p>
-          <img id="proj-cover" src="assets/images/projects/sidetable.svg" alt="Side Table preview">
+          <img id="proj-cover" src="assets/images/projects/sidetable.png" alt="Side Table preview">
         </div>
       </div>
       <div class="proj-cursor" id="proj-cursor">View project</div>
@@ -361,6 +365,73 @@
     </div>
     <p class="footer-copy">© 2026 · UX Designer & Prompt Engineer · San Francisco Bay Area</p>
   </footer>
+
+  <div class="contact-modal" id="contact-modal" aria-hidden="true">
+    <div class="contact-modal-backdrop" id="contact-modal-backdrop" aria-hidden="true"></div>
+    <div
+      class="contact-modal-dialog"
+      id="contact-modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+    >
+      <button type="button" class="contact-modal-close" id="contact-modal-close" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <span class="section-tag">Let's talk</span>
+      <h2 class="contact-modal-title" id="contact-modal-title">Send me a note</h2>
+      <p class="contact-modal-lead">
+        Full-time roles, freelance, or a hard problem worth solving — drop a line and I'll get back to you.
+      </p>
+      <form class="contact-form" id="contact-form" novalidate>
+        <label class="contact-field">
+          <span>Your name</span>
+          <input type="text" name="name" id="contact-name" autocomplete="name" required>
+        </label>
+        <label class="contact-field">
+          <span>Message</span>
+          <textarea name="message" id="contact-message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="contact-submit">Send email</button>
+      </form>
+      <p class="contact-modal-note">
+        Opens your email app addressed to
+        <a href="mailto:avinoz@gmail.com">avinoz@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-modal" id="portfolio-modal" aria-hidden="true">
+    <div class="contact-modal-backdrop" id="portfolio-modal-backdrop" aria-hidden="true"></div>
+    <div
+      class="contact-modal-dialog"
+      id="portfolio-modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="portfolio-modal-title"
+    >
+      <button type="button" class="contact-modal-close" id="portfolio-modal-close" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <span class="section-tag">Portfolio</span>
+      <h2 class="contact-modal-title" id="portfolio-modal-title">Download portfolio</h2>
+      <p class="contact-modal-lead">
+        Enter the password you received to download my portfolio PDF.
+      </p>
+      <form class="contact-form" id="portfolio-form" novalidate>
+        <label class="contact-field">
+          <span>Password</span>
+          <input type="password" name="password" id="portfolio-password" autocomplete="current-password" required>
+        </label>
+        <p class="portfolio-error" id="portfolio-error" role="alert" hidden>Incorrect password. Try again or request access below.</p>
+        <button type="submit" class="contact-submit">Download PDF</button>
+      </form>
+      <div class="portfolio-request">
+        <p>Don't have the password?</p>
+        <button type="button" class="portfolio-request-btn" id="portfolio-request-access">Request access</button>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>

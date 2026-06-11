@@ -619,10 +619,22 @@
       trigger: '#projects',
       start: 'top 35%',
       end: 'bottom 75%',
-      onEnter: () => { preview.classList.add('visible'); projectsVisible = true; },
-      onLeave: () => { preview.classList.remove('visible'); projectsVisible = false; },
-      onEnterBack: () => { preview.classList.add('visible'); projectsVisible = true; },
-      onLeaveBack: () => { preview.classList.remove('visible'); projectsVisible = false; },
+      onEnter: () => {
+        if (!isMobile) preview.classList.add('visible');
+        projectsVisible = true;
+      },
+      onLeave: () => {
+        if (!isMobile) preview.classList.remove('visible');
+        projectsVisible = false;
+      },
+      onEnterBack: () => {
+        if (!isMobile) preview.classList.add('visible');
+        projectsVisible = true;
+      },
+      onLeaveBack: () => {
+        if (!isMobile) preview.classList.remove('visible');
+        projectsVisible = false;
+      },
     });
 
     /* Stroke draws top → bottom along the path */
@@ -647,13 +659,21 @@
     function deactivateAll() {
       if (currentIdx >= 0) items[currentIdx].classList.remove('active');
       currentIdx = -1;
-      gsap.to(card, { opacity: 0, duration: 0.25, ease: 'power2.in' });
+      if (!isMobile) {
+        gsap.to(card, { opacity: 0, duration: 0.25, ease: 'power2.in' });
+      }
     }
 
     function activateProject(i) {
       if (i === currentIdx) return;
       if (currentIdx >= 0) items[currentIdx].classList.remove('active');
       items[i].classList.add('active');
+      currentUrl = items[i].dataset.url || '';
+
+      if (isMobile) {
+        currentIdx = i;
+        return;
+      }
 
       const setMeta = () => {
         cover.src = items[i].dataset.img;
@@ -696,11 +716,8 @@
         const rect = item.getBoundingClientRect();
         const itemCy = rect.top + rect.height / 2;
         const dist = Math.abs(itemCy - cy);
-        if (!isMobile) {
-          itemQuickX[i](-Math.min(dist / halfH, 1) * 80);
-        } else {
-          itemQuickX[i](0);
-        }
+        const shift = isMobile ? 56 : 80;
+        itemQuickX[i](-Math.min(dist / halfH, 1) * shift);
         if (dist < closestDist) {
           closestDist = dist;
           closestIdx = i;
@@ -719,6 +736,13 @@
 
     items.forEach((item, i) => {
       item.addEventListener('click', () => {
+        if (isMobile) {
+          activateProject(i);
+          if (item.dataset.url) {
+            window.open(item.dataset.url, '_blank', 'noopener,noreferrer');
+          }
+          return;
+        }
         activateProject(i);
         let docTop = 0;
         let el = item;
@@ -794,6 +818,8 @@
 
   /* ── Process orbit ── */
   function initProcess() {
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+
     const nodes = document.querySelectorAll('.orbit-node');
     const ringWrap = document.getElementById('orbit-ring-wrap');
     const baseTilt = -32;

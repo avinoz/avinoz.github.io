@@ -131,49 +131,4 @@
     };
     window.addEventListener('resize', () => window.HeroCanvas.resize());
   }
-
-  /* Contact: gentle wave lines */
-  const contactCanvas = document.getElementById('contact-canvas');
-  if (contactCanvas) {
-    const cCtx = contactCanvas.getContext('2d');
-    let t = 0;
-    let running = false;
-
-    function drawContact() {
-      const dpr = Math.min(window.devicePixelRatio, 2);
-      const w = contactCanvas.clientWidth;
-      const h = contactCanvas.clientHeight;
-      contactCanvas.width = w * dpr;
-      contactCanvas.height = h * dpr;
-      cCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      cCtx.clearRect(0, 0, w, h);
-
-      for (let i = 0; i < 5; i++) {
-        const hue = i % 2 === 0 ? '255, 20, 96' : '0, 201, 138';
-        cCtx.beginPath();
-        cCtx.strokeStyle = `rgba(${hue}, ${0.1 + i * 0.04})`;
-        cCtx.lineWidth = 1.5;
-        for (let x = 0; x <= w; x += 4) {
-          const y = h * 0.5 + Math.sin(x * 0.008 + t + i * 1.2) * (30 + i * 15);
-          x === 0 ? cCtx.moveTo(x, y) : cCtx.lineTo(x, y);
-        }
-        cCtx.stroke();
-      }
-      t += 0.012;
-    }
-
-    window.ContactWaves = {
-      start() {
-        if (running) return;
-        running = true;
-        const loop = () => {
-          if (!running) return;
-          drawContact();
-          requestAnimationFrame(loop);
-        };
-        loop();
-      },
-      stop() { running = false; },
-    };
-  }
 })();

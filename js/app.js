@@ -19,28 +19,35 @@
   const introBg = document.getElementById('intro-bg');
   let siteInitialized = false;
 
-  function getRevealOrigin() {
-    const dot = introIDot.getBoundingClientRect();
-    const x = dot.left + dot.width / 2;
-    const y = dot.top + dot.height / 2;
+  function getRevealOrigin(dotEl, maskEl) {
+    const dot = dotEl.getBoundingClientRect();
+    const mask = maskEl
+      ? maskEl.getBoundingClientRect()
+      : { left: 0, top: 0, width: window.innerWidth, height: window.innerHeight };
+    const dotX = dot.left + dot.width / 2;
+    const dotY = dot.top + dot.height / 2;
+    const x = dotX - mask.left;
+    const y = dotY - mask.top;
     const vmin = Math.min(window.innerWidth, window.innerHeight) / 100;
     const baseRadius = 150 * vmin;
     const corners = [
-      [0, 0],
-      [window.innerWidth, 0],
-      [0, window.innerHeight],
-      [window.innerWidth, window.innerHeight],
+      [mask.left, mask.top],
+      [mask.left + mask.width, mask.top],
+      [mask.left, mask.top + mask.height],
+      [mask.left + mask.width, mask.top + mask.height],
     ];
     const coverScale = Math.max(
-      ...corners.map(([cx, cy]) => Math.hypot(cx - x, cy - y) / baseRadius)
+      ...corners.map(([cx, cy]) => Math.hypot(cx - dotX, cy - dotY) / baseRadius)
     );
     return {
       x,
       y,
-      cxPct: (x / window.innerWidth) * 100,
-      cyPct: (y / window.innerHeight) * 100,
+      cxPct: (x / mask.width) * 100,
+      cyPct: (y / mask.height) * 100,
+      baseRadius,
       initialScale: (dot.width / 2) / baseRadius,
       coverScale,
+      endRadiusPx: 0.5,
     };
   }
 
@@ -49,11 +56,93 @@
     introScaler.style.top = `${origin.y}px`;
   }
 
-  function setRevealMask(scale, origin) {
+  function setRevealMask(scale, origin, el) {
     const r = scale * 150;
     const mask = `radial-gradient(circle at ${origin.cxPct}% ${origin.cyPct}%, transparent ${r}vmin, #000 ${r}vmin)`;
-    introBg.style.maskImage = mask;
-    introBg.style.webkitMaskImage = mask;
+    el.style.maskImage = mask;
+    el.style.webkitMaskImage = mask;
+  }
+
+  function setShrinkMask(scale, origin, el) {
+    const r = scale * 150;
+    const mask = `radial-gradient(circle at ${origin.cxPct}% ${origin.cyPct}%, #000 ${r}vmin, transparent ${r}vmin)`;
+    el.style.maskImage = mask;
+    el.style.webkitMaskImage = mask;
+  }
+
+  function setShrinkMaskRadius(radiusPx, origin, el) {
+    const mask = `radial-gradient(circle at ${origin.x}px ${origin.y}px, #000 ${radiusPx}px, transparent ${radiusPx}px)`;
+    el.style.maskImage = mask;
+    el.style.webkitMaskImage = mask;
+  }
+
+  function layoutLetterTrack(lettersRoot, iGroupId, iStemId, iDotId) {
+    const y = '188';
+    const group = document.getElementById(iGroupId);
+    const stem = document.getElementById(iStemId);
+    const dot = document.getElementById(iDotId);
+
+    const measure = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    measure.setAttribute('class', 'intro-letter');
+    measure.setAttribute('x', '0');
+    measure.setAttribute('y', y);
+    measure.setAttribute('visibility', 'hidden');
+    measure.textContent = 'Alvin Shiu';
+    lettersRoot.appendChild(measure);
+
+    const charMap = [
+      ['a', 'A', 0],
+      ['l', 'l', 1],
+      ['v', 'v', 2],
+      ['i', null, 3],
+      ['n', 'n', 4],
+      ['s', 'S', 6],
+      ['h', 'h', 7],
+      ['i2', 'i', 8],
+      ['u', 'u', 9],
+    ];
+
+    charMap.forEach(([key, char, index]) => {
+      const startX = getCharStartX(measure, index);
+      if (key === 'i') {
+        layoutIntroIAt(stem, dot, group, startX, y);
+        return;
+      }
+      const el = lettersRoot.querySelector(`[data-letter="${key}"] .intro-letter`);
+      el.setAttribute('x', String(startX));
+      el.setAttribute('y', y);
+      if (char) el.textContent = char;
+    });
+
+    measure.remove();
+  }
+
+  function layoutSignatureName(svgId, lettersId, iGroupId, iStemId, iDotId) {
+    const svg = document.getElementById(svgId);
+    const letters = document.getElementById(lettersId);
+    if (!svg || !letters) return;
+
+    letters.removeAttribute('transform');
+    layoutLetterTrack(letters, iGroupId, iStemId, iDotId);
+
+    const box = letters.getBBox();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const targetW = vw * 0.55;
+    const targetH = vh * 0.45;
+    let scale = targetW / box.width;
+    if (box.height * scale > targetH) {
+      scale = targetH / box.height;
+    }
+
+    const cx = box.x + box.width / 2;
+    const cy = box.y + box.height / 2;
+
+    svg.setAttribute('viewBox', `0 0 ${vw} ${vh}`);
+    letters.setAttribute(
+      'transform',
+      `translate(${vw / 2}, ${vh / 2}) scale(${scale}) translate(${-cx}, ${-cy})`
+    );
   }
 
   function getCharStartX(textEl, index) {
@@ -87,44 +176,7 @@
   }
 
   function layoutIntroLetterTrack() {
-    const y = '188';
-    const group = document.getElementById('intro-i-group');
-    const stem = document.getElementById('intro-i-stem');
-    const dot = document.getElementById('intro-i-dot');
-
-    const measure = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    measure.setAttribute('class', 'intro-letter');
-    measure.setAttribute('x', '0');
-    measure.setAttribute('y', y);
-    measure.setAttribute('visibility', 'hidden');
-    measure.textContent = 'Alvin Shiu';
-    introLetters.appendChild(measure);
-
-    const charMap = [
-      ['a', 'A', 0],
-      ['l', 'l', 1],
-      ['v', 'v', 2],
-      ['i', null, 3],
-      ['n', 'n', 4],
-      ['s', 'S', 6],
-      ['h', 'h', 7],
-      ['i2', 'i', 8],
-      ['u', 'u', 9],
-    ];
-
-    charMap.forEach(([key, char, index]) => {
-      const startX = getCharStartX(measure, index);
-      if (key === 'i') {
-        layoutIntroIAt(stem, dot, group, startX, y);
-        return;
-      }
-      const el = document.querySelector(`[data-letter="${key}"] .intro-letter`);
-      el.setAttribute('x', String(startX));
-      el.setAttribute('y', y);
-      if (char) el.textContent = char;
-    });
-
-    measure.remove();
+    layoutLetterTrack(introLetters, 'intro-i-group', 'intro-i-stem', 'intro-i-dot');
   }
 
   function layoutIntroName() {
@@ -176,7 +228,7 @@
     const letterWraps = [...introLetters.querySelectorAll('.intro-letter-wrap')];
     const animLetters = letterWraps.filter((el) => el.id !== 'intro-i-group');
     const iStem = document.getElementById('intro-i-stem');
-    const origin = getRevealOrigin();
+    const origin = getRevealOrigin(introIDot);
 
     positionRevealBlob(origin);
 
@@ -184,7 +236,7 @@
     gsap.set(iStem, { y: layout.enterY, opacity: 0 });
     gsap.set(introIDot, { opacity: 1, y: 0, transformOrigin: 'center center' });
     gsap.set(introScaler, { scale: origin.initialScale, opacity: 0 });
-    setRevealMask(0, origin);
+    setRevealMask(0, origin, introBg);
 
     const finishIntro = () => {
       document.documentElement.style.overflow = '';
@@ -199,7 +251,7 @@
 
     const syncReveal = () => {
       gsap.set(introScaler, { scale: reveal.scale, opacity: reveal.opacity });
-      setRevealMask(reveal.scale, origin);
+      setRevealMask(reveal.scale, origin, introBg);
     };
 
     const letterDelay = 0.35;
@@ -231,7 +283,7 @@
         ease: 'power3.inOut',
         onStart() {
           layoutIntroName();
-          const fresh = getRevealOrigin();
+          const fresh = getRevealOrigin(introIDot);
           Object.assign(origin, fresh);
           positionRevealBlob(origin);
           reveal.scale = fresh.initialScale;
@@ -377,6 +429,7 @@
 
     let currentIdx = -1;
     let projectsVisible = false;
+    let currentUrl = '';
     gsap.set(card, { opacity: 0 });
 
     items.forEach((item) => {
@@ -428,6 +481,9 @@
         cover.src = items[i].dataset.img;
         dateEl.textContent = items[i].dataset.date;
         if (descEl) descEl.textContent = items[i].dataset.desc || '';
+        currentUrl = items[i].dataset.url || '';
+        card.classList.toggle('has-link', Boolean(currentUrl));
+        projCursor.textContent = currentUrl ? 'View site' : 'View project';
       };
 
       if (currentIdx === -1) {
@@ -461,7 +517,11 @@
         const rect = item.getBoundingClientRect();
         const itemCy = rect.top + rect.height / 2;
         const dist = Math.abs(itemCy - cy);
-        itemQuickX[i](-Math.min(dist / halfH, 1) * 80);
+        if (!isMobile) {
+          itemQuickX[i](-Math.min(dist / halfH, 1) * 80);
+        } else {
+          itemQuickX[i](0);
+        }
         if (dist < closestDist) {
           closestDist = dist;
           closestIdx = i;
@@ -502,6 +562,9 @@
 
     cover.addEventListener('mouseenter', () => projCursor.classList.add('active'));
     cover.addEventListener('mouseleave', () => projCursor.classList.remove('active'));
+    card.addEventListener('click', () => {
+      if (currentUrl) window.open(currentUrl, '_blank', 'noopener,noreferrer');
+    });
 
     document.addEventListener('mousemove', (e) => {
       if (projectsVisible) {
@@ -630,56 +693,75 @@
     setCategory(0);
   }
 
-  /* ── Finale / Contact ── */
+  /* ── Finale: reverse intro — Alvin Shiu end state ── */
   function initContact() {
-    window.ContactWaves?.start();
+    const section = document.getElementById('contact');
+    const pin = document.getElementById('finale-pin');
+    const entranceBg = document.getElementById('finale-entrance-bg');
+    const signature = document.getElementById('finale-signature');
+    const finaleDot = document.getElementById('finale-i-dot');
 
-    const rule = document.getElementById('finale-rule');
-    if (reduced) return;
+    if (!section || !pin) return;
 
-    gsap.set('.finale-line--left', { opacity: 0, y: 28, xPercent: -4 });
-    gsap.set('.finale-line--right', { opacity: 0, y: 28, xPercent: 4 });
-    gsap.set('.finale-body, .finale-actions, .finale-signoff', { opacity: 0, y: 20 });
-    if (rule) gsap.set(rule, { width: 0 });
+    let finaleOrigin = null;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#contact',
-        start: 'top 72%',
-        once: true,
-      },
-    });
+    function layoutFinale() {
+      layoutSignatureName(
+        'finale-svg',
+        'finale-letters',
+        'finale-i-group',
+        'finale-i-stem',
+        'finale-i-dot'
+      );
+      if (finaleDot) {
+        finaleOrigin = getRevealOrigin(finaleDot, entranceBg);
+      }
+    }
 
-    tl.to('.finale-line--left', {
-      opacity: 1,
-      xPercent: 0,
-      y: 0,
-      duration: 0.9,
-      ease: 'power3.out',
-    })
-      .to(rule, { width: 'min(120px, 28vw)', duration: 0.6, ease: 'power2.inOut' }, '-=0.35')
-      .to('.finale-line--right', {
-        opacity: 1,
-        xPercent: 0,
-        y: 0,
-        duration: 0.9,
-        ease: 'power3.out',
-      }, '-=0.45')
-      .to('.finale-body', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.35')
-      .to('.finale-actions', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.5')
-      .to('.finale-signoff', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
+    function updateEntrance(p) {
+      if (!entranceBg || !finaleOrigin) return;
 
-    const email = document.getElementById('contact-email');
-    if (email && !reduced) {
-      email.addEventListener('mousemove', (e) => {
-        const rect = email.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        gsap.to(email, { x: x * 0.12, y: y * 0.12, duration: 0.3 });
+      const coverRadiusPx = finaleOrigin.coverScale * finaleOrigin.baseRadius;
+      const radiusPx =
+        coverRadiusPx * (1 - p) + finaleOrigin.endRadiusPx * p;
+      setShrinkMaskRadius(radiusPx, finaleOrigin, entranceBg);
+
+      if (signature) {
+        signature.style.opacity = String(Math.min(1, p * 1.35));
+      }
+    }
+
+    if (!reduced) {
+      layoutFinale();
+      updateEntrance(0);
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: pin,
+        onRefresh: layoutFinale,
       });
-      email.addEventListener('mouseleave', () => {
-        gsap.to(email, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.55,
+        onRefresh: layoutFinale,
+        onUpdate(self) {
+          if (finaleDot) finaleOrigin = getRevealOrigin(finaleDot, entranceBg);
+          updateEntrance(self.progress);
+        },
       });
+
+      window.addEventListener('resize', layoutFinale);
+    } else {
+      layoutFinale();
+      if (entranceBg && finaleOrigin) {
+        setShrinkMaskRadius(finaleOrigin.endRadiusPx, finaleOrigin, entranceBg);
+      }
+      if (signature) signature.style.opacity = '1';
     }
   }
 

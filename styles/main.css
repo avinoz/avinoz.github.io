@@ -851,9 +851,6 @@ body.modal-open {
   left: 5vw;
   height: 100vh;
   width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   perspective: 900px;
   pointer-events: none;
   opacity: 0;
@@ -866,23 +863,43 @@ body.modal-open {
   opacity: 1;
 }
 .proj-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: min(50vw, 600px);
-  will-change: transform;
-  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
   opacity: 0;
 }
-.proj-card img {
+.proj-card-tilt {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+.proj-cover-wrap {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
+  aspect-ratio: 1024 / 582;
+  overflow: hidden;
   border-radius: var(--radius);
   box-shadow: 0 24px 80px var(--shadow);
   cursor: none;
 }
+.proj-cover-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  will-change: opacity;
+}
 .proj-meta {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   margin-bottom: 0.75rem;
+  min-height: 1.25rem;
 }
 .proj-desc {
   font-size: 0.85rem;
@@ -890,6 +907,9 @@ body.modal-open {
   color: var(--ink-muted);
   margin-bottom: 1rem;
   max-width: 36ch;
+  height: 5.5em;
+  min-height: 5.5em;
+  overflow: hidden;
 }
 .proj-date,
 .proj-label {
@@ -898,6 +918,10 @@ body.modal-open {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-muted);
+}
+.proj-label {
+  text-align: right;
+  white-space: nowrap;
 }
 .proj-cursor {
   position: fixed;

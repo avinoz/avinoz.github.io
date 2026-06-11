@@ -594,7 +594,10 @@
   function initWork() {
     const items = document.querySelectorAll('.proj-item');
     const card = document.getElementById('proj-card');
-    const cover = document.getElementById('proj-cover');
+    const cardTilt = document.getElementById('proj-card-tilt');
+    const coverA = document.getElementById('proj-cover-a');
+    const coverB = document.getElementById('proj-cover-b');
+    const coverWrap = document.getElementById('proj-cover-wrap');
     const dateEl = document.getElementById('proj-date');
     const labelEl = document.getElementById('proj-label');
     const descEl = document.getElementById('proj-desc');
@@ -603,38 +606,24 @@
     const linePath = document.getElementById('fluid-line');
     const isMobile = navigator.maxTouchPoints > 1;
 
-    if (!items.length || !card || !linePath) return;
+    if (!items.length || !card || !linePath || !coverA || !coverB) return;
 
-    let currentIdx = -1;
+    let activeIdx = -1;
+    let metaIdx = -1;
     let projectsVisible = false;
     let currentUrl = '';
+    let projectsST = null;
     gsap.set(card, { opacity: 0 });
+    gsap.set(coverA, { opacity: 1 });
+    gsap.set(coverB, { opacity: 0 });
+
+    if (isMobile) {
+      items.forEach((item) => item.classList.remove('active'));
+    }
 
     items.forEach((item) => {
       const img = new Image();
       img.src = item.dataset.img;
-    });
-
-    ScrollTrigger.create({
-      trigger: isMobile ? '#work' : '#projects',
-      start: isMobile ? 'top 85%' : 'top 35%',
-      end: isMobile ? 'bottom 5%' : 'bottom 75%',
-      onEnter: () => {
-        if (!isMobile) preview.classList.add('visible');
-        projectsVisible = true;
-      },
-      onLeave: () => {
-        if (!isMobile) preview.classList.remove('visible');
-        projectsVisible = false;
-      },
-      onEnterBack: () => {
-        if (!isMobile) preview.classList.add('visible');
-        projectsVisible = true;
-      },
-      onLeaveBack: () => {
-        if (!isMobile) preview.classList.remove('visible');
-        projectsVisible = false;
-      },
     });
 
     /* Stroke draws top → bottom along the path */
@@ -656,55 +645,99 @@
       gsap.quickTo(item, 'x', { duration: 0.6, ease: 'power2.out' })
     );
 
-    function deactivateAll() {
-      if (currentIdx >= 0) items[currentIdx].classList.remove('active');
-      currentIdx = -1;
-      if (!isMobile) {
-        gsap.to(card, { opacity: 0, duration: 0.25, ease: 'power2.in' });
-      }
+    function setListActive(i) {
+      if (activeIdx === i) return;
+      if (activeIdx >= 0) items[activeIdx].classList.remove('active');
+      items[i].classList.add('active');
+      activeIdx = i;
     }
 
-    function activateProject(i) {
-      if (i === currentIdx) return;
-      if (currentIdx >= 0) items[currentIdx].classList.remove('active');
-      items[i].classList.add('active');
+    function applyMeta(i, force = false) {
+      if (!force && metaIdx === i) return;
+      metaIdx = i;
       currentUrl = items[i].dataset.url || '';
+      dateEl.textContent = items[i].dataset.date;
+      if (labelEl) labelEl.textContent = items[i].dataset.label || 'Designed & built';
+      if (descEl) descEl.textContent = items[i].dataset.desc || '';
+      card.classList.toggle('has-link', Boolean(currentUrl));
+      projCursor.textContent = currentUrl ? 'View site' : 'View project';
+      coverA.alt = items[i].textContent.trim() + ' preview';
+    }
 
-      if (isMobile) {
-        currentIdx = i;
-        return;
+    function snapCover(i) {
+      const src = items[i].dataset.img;
+      coverA.src = src;
+      coverB.src = src;
+      coverA.dataset.idx = String(i);
+      coverB.dataset.idx = String(i);
+      gsap.set(coverA, { opacity: 1 });
+      gsap.set(coverB, { opacity: 0 });
+    }
+
+    function crossfadeCover(progress) {
+      const max = items.length - 1;
+      const pos = max > 0 ? progress * max : 0;
+      const i = Math.min(max, Math.floor(pos));
+      const frac = pos - i;
+      const next = Math.min(i + 1, max);
+
+      if (coverA.dataset.idx !== String(i)) {
+        coverA.src = items[i].dataset.img;
+        coverA.dataset.idx = String(i);
+      }
+      if (coverB.dataset.idx !== String(next)) {
+        coverB.src = items[next].dataset.img;
+        coverB.dataset.idx = String(next);
       }
 
-      const setMeta = () => {
-        cover.src = items[i].dataset.img;
-        dateEl.textContent = items[i].dataset.date;
-        if (labelEl) labelEl.textContent = items[i].dataset.label || 'Designed & built';
-        if (descEl) descEl.textContent = items[i].dataset.desc || '';
-        currentUrl = items[i].dataset.url || '';
-        card.classList.toggle('has-link', Boolean(currentUrl));
-        projCursor.textContent = currentUrl ? 'View site' : 'View project';
-      };
-
-      if (currentIdx === -1) {
-        setMeta();
-        gsap.to(card, { opacity: 1, duration: 0.4, ease: 'power2.out' });
+      if (i >= max) {
+        gsap.set(coverA, { opacity: 1 });
+        gsap.set(coverB, { opacity: 0 });
       } else {
-        gsap.to(card, {
-          opacity: 0,
-          duration: 0.18,
-          ease: 'power2.in',
-          onComplete: () => {
-            setMeta();
-            gsap.to(card, { opacity: 1, duration: 0.3, ease: 'power2.out' });
-          },
-        });
+        gsap.set(coverA, { opacity: 1 - frac });
+        gsap.set(coverB, { opacity: frac });
       }
-      currentIdx = i;
+
+      const roundIdx = Math.round(pos);
+      applyMeta(roundIdx);
+      setListActive(roundIdx);
+    }
+
+    function showPreview() {
+      preview.classList.add('visible');
+      gsap.to(card, { opacity: 1, duration: 0.4, ease: 'power2.out', overwrite: true });
+    }
+
+    function hidePreview() {
+      preview.classList.remove('visible');
+      gsap.to(card, { opacity: 0, duration: 0.25, ease: 'power2.in', overwrite: true });
+      if (activeIdx >= 0) items[activeIdx].classList.remove('active');
+      activeIdx = -1;
+      metaIdx = -1;
+    }
+
+    function selectProject(i, { scroll = false } = {}) {
+      if (isMobile) return;
+      projectsVisible = true;
+      showPreview();
+      setListActive(i);
+      applyMeta(i, true);
+      snapCover(i);
+
+      if (scroll && projectsST) {
+        const max = items.length - 1;
+        const progress = max > 0 ? i / max : 0;
+        const target = projectsST.start + (projectsST.end - projectsST.start) * progress;
+        lenis.scrollTo(target, { duration: 1.2 });
+      }
     }
 
     function onProjectsScroll() {
       if (!projectsVisible) {
-        if (currentIdx >= 0) deactivateAll();
+        if (isMobile && activeIdx >= 0) {
+          items[activeIdx].classList.remove('active');
+          activeIdx = -1;
+        }
         return;
       }
       const cy = window.innerHeight / 2;
@@ -718,25 +751,63 @@
         const dist = Math.abs(itemCy - cy);
         const shift = isMobile ? 56 : 80;
         itemQuickX[i](-Math.min(dist / halfH, 1) * shift);
-        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-        if (inView && dist < closestDist) {
-          closestDist = dist;
-          closestIdx = i;
+        if (isMobile) {
+          const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+          if (inView && dist < closestDist) {
+            closestDist = dist;
+            closestIdx = i;
+          }
         }
       });
 
       if (isMobile) {
-        if (closestIdx >= 0) activateProject(closestIdx);
-        else deactivateAll();
-        return;
-      }
-
-      if (closestIdx >= 0 && closestDist < window.innerHeight * 0.24) {
-        activateProject(closestIdx);
-      } else {
-        deactivateAll();
+        if (closestIdx >= 0) setListActive(closestIdx);
+        else if (activeIdx >= 0) {
+          items[activeIdx].classList.remove('active');
+          activeIdx = -1;
+        }
       }
     }
+
+    projectsST = ScrollTrigger.create({
+      trigger: isMobile ? '#work' : '#projects',
+      start: isMobile ? 'top 85%' : 'top 35%',
+      end: isMobile ? 'bottom 5%' : 'bottom 75%',
+      onEnter: (self) => {
+        projectsVisible = true;
+        if (!isMobile) {
+          showPreview();
+          crossfadeCover(self.progress);
+        }
+      },
+      onLeave: () => {
+        projectsVisible = false;
+        if (!isMobile) hidePreview();
+        else if (activeIdx >= 0) {
+          items[activeIdx].classList.remove('active');
+          activeIdx = -1;
+        }
+      },
+      onEnterBack: (self) => {
+        projectsVisible = true;
+        if (!isMobile) {
+          showPreview();
+          crossfadeCover(self.progress);
+        }
+      },
+      onLeaveBack: () => {
+        projectsVisible = false;
+        if (!isMobile) hidePreview();
+        else if (activeIdx >= 0) {
+          items[activeIdx].classList.remove('active');
+          activeIdx = -1;
+        }
+      },
+      onUpdate: (self) => {
+        if (isMobile) return;
+        crossfadeCover(self.progress);
+      },
+    });
 
     lenis.on('scroll', onProjectsScroll);
     onProjectsScroll();
@@ -744,20 +815,13 @@
     items.forEach((item, i) => {
       item.addEventListener('click', () => {
         if (isMobile) {
-          activateProject(i);
+          setListActive(i);
           if (item.dataset.url) {
             window.open(item.dataset.url, '_blank', 'noopener,noreferrer');
           }
           return;
         }
-        activateProject(i);
-        let docTop = 0;
-        let el = item;
-        while (el) {
-          docTop += el.offsetTop;
-          el = el.offsetParent;
-        }
-        lenis.scrollTo(docTop - window.innerHeight / 2 + item.offsetHeight / 2, { duration: 1.2 });
+        selectProject(i, { scroll: true });
       });
     });
 
@@ -769,9 +833,11 @@
     let tiltTargetRX = 0;
     let tiltRY = 0;
     let tiltRX = 0;
+    const tiltEl = cardTilt || card;
 
-    cover.addEventListener('mouseenter', () => projCursor.classList.add('active'));
-    cover.addEventListener('mouseleave', () => projCursor.classList.remove('active'));
+    const coverHover = coverWrap || coverA;
+    coverHover.addEventListener('mouseenter', () => projCursor.classList.add('active'));
+    coverHover.addEventListener('mouseleave', () => projCursor.classList.remove('active'));
     card.addEventListener('click', () => {
       if (currentUrl) window.open(currentUrl, '_blank', 'noopener,noreferrer');
     });
@@ -794,7 +860,7 @@
       if (!projectsVisible) return;
       tiltRY += (tiltTargetRY - tiltRY) * 0.12;
       tiltRX += (tiltTargetRX - tiltRX) * 0.12;
-      card.style.transform =
+      tiltEl.style.transform =
         'rotateY(' + tiltRY.toFixed(2) + 'deg) rotateX(' + tiltRX.toFixed(2) + 'deg)';
     });
 

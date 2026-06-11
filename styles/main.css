@@ -1393,15 +1393,15 @@ body.modal-open {
     min-height: auto;
   }
   .projects-list {
-    position: sticky;
-    top: 0;
+    position: relative;
+    top: auto;
     height: auto;
     width: 100%;
     max-width: 100%;
     padding-right: clamp(1.25rem, 4vw, 3rem);
     padding-left: calc(clamp(1.25rem, 4vw, 3rem) + 3.5rem);
     padding-top: 0;
-    padding-bottom: clamp(1.25rem, 3vh, 2rem);
+    padding-bottom: clamp(2.5rem, 7vh, 4.5rem);
     text-align: left;
     box-sizing: border-box;
     justify-content: flex-start;

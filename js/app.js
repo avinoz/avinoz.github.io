@@ -616,9 +616,9 @@
     });
 
     ScrollTrigger.create({
-      trigger: '#projects',
-      start: 'top 35%',
-      end: 'bottom 75%',
+      trigger: isMobile ? '#work' : '#projects',
+      start: isMobile ? 'top 85%' : 'top 35%',
+      end: isMobile ? 'bottom 5%' : 'bottom 75%',
       onEnter: () => {
         if (!isMobile) preview.classList.add('visible');
         projectsVisible = true;
@@ -718,11 +718,18 @@
         const dist = Math.abs(itemCy - cy);
         const shift = isMobile ? 56 : 80;
         itemQuickX[i](-Math.min(dist / halfH, 1) * shift);
-        if (dist < closestDist) {
+        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (inView && dist < closestDist) {
           closestDist = dist;
           closestIdx = i;
         }
       });
+
+      if (isMobile) {
+        if (closestIdx >= 0) activateProject(closestIdx);
+        else deactivateAll();
+        return;
+      }
 
       if (closestIdx >= 0 && closestDist < window.innerHeight * 0.24) {
         activateProject(closestIdx);

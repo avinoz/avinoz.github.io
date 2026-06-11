@@ -630,18 +630,44 @@
     setCategory(0);
   }
 
-  /* ── Contact ── */
+  /* ── Finale / Contact ── */
   function initContact() {
     window.ContactWaves?.start();
 
-    gsap.from('.contact-inner > *', {
-      scrollTrigger: { trigger: '#contact', start: 'top 70%' },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.12,
-      ease: 'power3.out',
+    const rule = document.getElementById('finale-rule');
+    if (reduced) return;
+
+    gsap.set('.finale-line--left', { opacity: 0, y: 28, xPercent: -4 });
+    gsap.set('.finale-line--right', { opacity: 0, y: 28, xPercent: 4 });
+    gsap.set('.finale-body, .finale-actions, .finale-signoff', { opacity: 0, y: 20 });
+    if (rule) gsap.set(rule, { width: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 72%',
+        once: true,
+      },
     });
+
+    tl.to('.finale-line--left', {
+      opacity: 1,
+      xPercent: 0,
+      y: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+    })
+      .to(rule, { width: 'min(120px, 28vw)', duration: 0.6, ease: 'power2.inOut' }, '-=0.35')
+      .to('.finale-line--right', {
+        opacity: 1,
+        xPercent: 0,
+        y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+      }, '-=0.45')
+      .to('.finale-body', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.35')
+      .to('.finale-actions', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.5')
+      .to('.finale-signoff', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
 
     const email = document.getElementById('contact-email');
     if (email && !reduced) {
@@ -649,7 +675,7 @@
         const rect = email.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        gsap.to(email, { x: x * 0.15, y: y * 0.15, duration: 0.3 });
+        gsap.to(email, { x: x * 0.12, y: y * 0.12, duration: 0.3 });
       });
       email.addEventListener('mouseleave', () => {
         gsap.to(email, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });

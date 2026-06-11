@@ -596,6 +596,7 @@
     const card = document.getElementById('proj-card');
     const cover = document.getElementById('proj-cover');
     const dateEl = document.getElementById('proj-date');
+    const labelEl = document.getElementById('proj-label');
     const descEl = document.getElementById('proj-desc');
     const preview = document.getElementById('proj-preview');
     const projCursor = document.getElementById('proj-cursor');
@@ -657,6 +658,7 @@
       const setMeta = () => {
         cover.src = items[i].dataset.img;
         dateEl.textContent = items[i].dataset.date;
+        if (labelEl) labelEl.textContent = items[i].dataset.label || 'Designed & built';
         if (descEl) descEl.textContent = items[i].dataset.desc || '';
         currentUrl = items[i].dataset.url || '';
         card.classList.toggle('has-link', Boolean(currentUrl));

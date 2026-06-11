@@ -823,9 +823,8 @@ body.modal-open {
 .fluid-line-svg {
   position: absolute;
   top: -8vh;
-  left: 0;
-  right: 0;
-  width: 100%;
+  left: -20vw;
+  width: 85vw;
   height: calc(100% + 22vh);
   pointer-events: none;
   z-index: 0;
@@ -834,10 +833,13 @@ body.modal-open {
 .fluid-line {
   fill: none;
   stroke: var(--sky);
-  stroke-width: 16;
+  stroke-width: 42;
   stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-miterlimit: 10;
   opacity: 0.95;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
 }
 .proj-preview {
   position: fixed;
@@ -941,16 +943,17 @@ body.modal-open {
   grid-template-columns: 120px 1fr;
   gap: 1.25rem;
   padding: 1.5rem;
-  background: color-mix(in srgb, var(--accent-2) 10%, var(--bg));
-  border: 1px solid color-mix(in srgb, var(--accent-2) 30%, var(--border));
+  background: var(--accent-2);
+  border: 1px solid var(--accent-2);
   border-radius: var(--radius-lg);
   align-items: start;
+  color: var(--on-dark);
 }
 .app-card-visual {
   border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 1;
-  background: var(--bg-deep);
+  background: color-mix(in srgb, var(--ink) 12%, var(--accent-2));
 }
 .app-card-visual img {
   width: 100%;
@@ -962,10 +965,11 @@ body.modal-open {
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+  color: var(--on-dark);
 }
 .app-card-desc {
   font-size: 0.85rem;
-  color: var(--ink-muted);
+  color: color-mix(in srgb, var(--on-dark) 72%, transparent);
   line-height: 1.55;
   margin-bottom: 1rem;
 }
@@ -981,6 +985,10 @@ body.modal-open {
   border-radius: 8px;
   transition: transform 0.2s, opacity 0.2s, background 0.2s;
 }
+.app-card .app-store-badge {
+  background: var(--surface);
+  color: var(--ink);
+}
 .app-store-badge svg {
   width: 110px;
   height: 36px;
@@ -989,6 +997,11 @@ body.modal-open {
   background: var(--accent);
   transform: translateY(-2px);
   opacity: 0.9;
+}
+.app-card .app-store-link:hover .app-store-badge {
+  background: var(--on-dark);
+  color: var(--ink);
+  opacity: 1;
 }
 
 /* ── Process ── */
@@ -1370,8 +1383,8 @@ body.modal-open {
     font-size: clamp(1.6rem, 8vw, 2.4rem);
     white-space: normal;
   }
-  .fluid-line-svg { width: 100%; left: 0; opacity: 0.5; }
-  .fluid-line { stroke-width: 14; }
+  .fluid-line-svg { width: 90vw; left: -15vw; opacity: 0.5; }
+  .fluid-line { stroke-width: 42; }
   .apps-grid { grid-template-columns: 1fr; }
   .app-card { grid-template-columns: 80px 1fr; }
   .stack { height: 480vh; }
